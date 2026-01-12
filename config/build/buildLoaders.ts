@@ -1,7 +1,6 @@
-import webpack from "webpack";
-import MiniCssExtractPlugin from "mini-css-extract-plugin";
-import {BuildOptions} from "./types/config";
-
+import webpack from 'webpack';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import { BuildOptions } from './types/config';
 
 export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
     const typescriptLoader: webpack.RuleSetRule = {
@@ -13,17 +12,17 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
     const scssLoader: webpack.RuleSetRule = {
         test: /\.s[ac]ss$/i,
         use: [
-            options.isDev ? "style-loader" : MiniCssExtractPlugin.loader,
+            options.isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
             {
-                loader: "css-loader",
+                loader: 'css-loader',
                 options: {
                     modules: {
-                        auto: (resPath: string) => Boolean(resPath.includes(".module.")),
-                        localIdentName: options.isDev ? "[path][name]__[local]--[hash:base64:5]" : "[hash:base64:8]",
-                    }
-                }
+                        auto: (resPath: string) => Boolean(resPath.includes('.module.')),
+                        localIdentName: options.isDev ? '[path][name]__[local]--[hash:base64:5]' : '[hash:base64:8]',
+                    },
+                },
             },
-            "sass-loader",
+            'sass-loader',
         ],
     };
 
@@ -47,21 +46,21 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
         use: {
             loader: 'babel-loader',
             options: {
-                targets: "defaults",
+                targets: 'defaults',
                 presets: ['@babel/preset-env'],
-                // plugins: [
-                //     [
-                //         "i18next-extract",
-                //         {
-                //             locales: ['ru', 'en'],
-                //             keyAsDefaultValue: false,
-                //             saveMissing: true,
-                //             outputPath: 'public/locales/{{locale}}/{{ns}}.json',
-                //         }
-                //     ]
-                // ],
-            }
-        }
+                plugins: [
+                    [
+                        'i18next-extract',
+                        {
+                            locales: ['ru', 'en'],
+                            keyAsDefaultValue: false,
+                            saveMissing: true,
+                            outputPath: 'public/locales/{{locale}}/{{ns}}.json',
+                        },
+                    ],
+                ],
+            },
+        },
     };
 
     return [
@@ -69,6 +68,6 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
         svgLoader,
         babelLoader,
         typescriptLoader,
-        scssLoader
+        scssLoader,
     ];
 }

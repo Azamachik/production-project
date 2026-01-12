@@ -1,12 +1,11 @@
-import {Route, Routes} from "react-router-dom";
-import React, {Suspense} from "react";
-import {rootConfig} from "shared/config/rootConfig/rootConfig";
+import { Route, Routes } from 'react-router-dom';
+import React, { Suspense } from 'react';
+import { rootConfig } from 'shared/config/rootConfig/rootConfig';
 
-const AppRouter = () => {
-  return (
+const AppRouter = () => (
     <Suspense fallback={<div>Loading...</div>}>
         <Routes>
-            {Object.values(rootConfig).map(({element, path}) =>
+            {Object.values(rootConfig).map(({ element, path }) => (
                 <Route
                     key={path}
                     path={path}
@@ -16,10 +15,9 @@ const AppRouter = () => {
                         </div>
                     )}
                 />
-            )}
+            ))}
         </Routes>
     </Suspense>
-  );
-};
+);
 
 export default AppRouter;
