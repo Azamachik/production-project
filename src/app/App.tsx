@@ -7,7 +7,7 @@ import { Sidebar } from 'widgets/Sidebar/ui';
 import { useTheme } from './providers/ThemeProvider';
 
 function App() {
-    const { theme, toggleTheme } = useTheme();
+    const { theme } = useTheme();
 
     return (
         <div className={classNames('app', {}, [theme])}>
