@@ -1,3 +1,5 @@
+const { rules } = require('eslint-plugin-react');
+
 module.exports = {
     env: {
         browser: true,
@@ -43,13 +45,21 @@ module.exports = {
         'no-underscore-dangle': 'off',
         'i18next/no-literal-string': ['error', {
             markupOnly: true,
-            ignoreAttribute: ['to'],
+            ignoreAttribute: ['to', 'data-testid'],
         }],
-        'max-len': ['error', { ignoreComments: true }],
+        'max-len': ['error', { ignoreComments: true, code: 100 }],
         'no-trailing-spaces': 'off',
         'no-undef': 'off',
     },
     globals: {
         __IS_DEV__: true,
     },
+    overrides: [
+        {
+            files: ['**/src/**/*.test.{ts,tsx}'],
+            rules: {
+                'i18next/no-literal-string': 'off',
+            },
+        },
+    ],
 };
