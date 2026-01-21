@@ -16,13 +16,13 @@ export function Navbar({ className }: NavbarProps) {
                 <AppLink
                     to="/"
                     className={cls.mainLink}
-                    theme={AppLinkTheme.PRIMARY}
+                    variant={AppLinkTheme.PRIMARY}
                 >
                     {t('Главная')}
                 </AppLink>
                 <AppLink
                     to="/about"
-                    theme={AppLinkTheme.PRIMARY}
+                    variant={AppLinkTheme.PRIMARY}
                 >
                     {t('О сайте')}
                 </AppLink>
