@@ -36,7 +36,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
       - name: install modules
-        run: npm ci
+        run: npm install
       - name: unit testing
         run: npm run test:unit
       - name: build storybook
