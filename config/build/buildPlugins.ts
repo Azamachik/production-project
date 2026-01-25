@@ -17,7 +17,6 @@ webpack.WebpackPluginInstance[] {
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
         }),
-        new BundleAnalyzerPlugin(),
     ];
 
     if (isDev) {
@@ -26,6 +25,7 @@ webpack.WebpackPluginInstance[] {
                 overlay: false,
             },
         ));
+        plugins.push(new BundleAnalyzerPlugin());
     }
 
     return plugins;
