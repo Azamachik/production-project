@@ -39,11 +39,11 @@
 
 .collapsedButton {
     position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    left: 85%;
     top: 50%;
+    left: 85%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     transition: left 0.3s ease;
 }
 
@@ -56,9 +56,9 @@
     }
 
     .link {
+        width: 0;
         opacity: 0;
         transition: opacity 0.3s ease;
-        width: 0;
     }
 
     .collapsedButton {

@@ -1,7 +1,7 @@
 .Button {
     padding: 6px 12px;
-    color: var(--primary-color);
     border-radius: var(--border-radius);
+    color: var(--primary-color);
     cursor: pointer;
 }
 
@@ -19,13 +19,13 @@
 }
 
 .background {
-    background-color: var(--bg-color);
     border: none;
+    background-color: var(--bg-color);
 }
 
 .backgroundInverted {
-    background-color: var(--inverted-bg-color);
     border: none;
+    background-color: var(--inverted-bg-color);
 }
 
 .size_m {
