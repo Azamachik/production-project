@@ -1,20 +1,71 @@
 .Sidebar {
     position: relative;
+    display: flex;
     width: var(--sidebar-width);
     height: var(--sidebar-height);
+    margin-left: 32px;
+    border-radius: var(--border-radius);
     background: var(--sidebar-bg-color);
     transition: width 0.4s ease;
-}
-
-.collapsed {
-    width: var(--sidebar-width-collapsed);
 }
 
 .switchers {
     position: absolute;
     bottom: 24px;
     display: flex;
-    flex-direction: column;
     justify-content: center;
+    align-items: center;
     width: 100%;
+}
+
+.items {
+    display: flex;
+    flex-direction: column;
+    margin-top: 24px;
+    margin-left: 8px;
+    transition: left 0.3s ease;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.link {
+    margin-left: 8px;
+    opacity: 1;
+}
+
+.collapsedButton {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 85%;
+    top: 50%;
+    transition: left 0.3s ease;
+}
+
+.collapsed {
+    width: var(--sidebar-width-collapsed);
+
+    .switchers {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .link {
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        width: 0;
+    }
+
+    .collapsedButton {
+        left: 15%;
+    }
+}
+
+.icon {
+    fill: var(--primary-color);
 }

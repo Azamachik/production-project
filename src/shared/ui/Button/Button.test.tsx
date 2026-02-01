@@ -1,4 +1,4 @@
-import { Button, ThemeButton } from 'shared/ui/Button/Button';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { screen } from '@testing-library/react';
 import {
     renderWithTranslation,
@@ -11,7 +11,7 @@ describe('Button', () => {
     });
 
     test('Applies correct CSS class when variant is provided', () => {
-        renderWithTranslation(<Button variant={ThemeButton.CLEAR}>TEST</Button>);
+        renderWithTranslation(<Button variant={ButtonTheme.CLEAR}>TEST</Button>);
         expect(screen.getByText('TEST')).toHaveClass('clear');
     });
 });

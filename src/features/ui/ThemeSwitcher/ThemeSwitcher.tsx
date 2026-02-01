@@ -1,7 +1,8 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Button, ThemeButton } from 'shared/ui/Button/Button';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { useTheme } from 'app/providers/ThemeProvider';
-import ThemeIcon from 'shared/assets/icons/theme.svg';
+import Moon from 'shared/assets/icons/moon.svg';
+import Sun from 'shared/assets/icons/sun.svg';
 import cls from './ThemeSwitcher.module.scss';
 
 interface ThemeSwitcherProps {
@@ -13,11 +14,13 @@ export const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
 
     return (
         <Button
-            variant={ThemeButton.CLEAR}
+            variant={ButtonTheme.CLEAR}
             className={classNames(cls.ThemeSwitcher, {}, [className])}
             onClick={toggleTheme}
         >
-            <ThemeIcon className={classNames(cls.icon, {}, [className])} />
+            {theme === 'dark'
+                ? <Moon className={classNames(cls.icon, {}, [className])} />
+                : <Sun className={classNames(cls.icon, {}, [className])} />}
         </Button>
     );
 };
