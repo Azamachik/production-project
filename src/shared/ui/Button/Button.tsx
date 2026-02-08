@@ -20,6 +20,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     variant?: ButtonTheme;
     size?: ButtonSize;
     square?: boolean;
+    onClick?: () => void;
 }
 
 export const Button: FC<ButtonProps> = (props) => {

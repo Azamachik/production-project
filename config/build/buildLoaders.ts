@@ -32,7 +32,7 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
             loader: 'babel-loader',
             options: {
                 targets: 'defaults',
-                presets: ['@babel/preset-env'],
+                presets: ['@babel/preset-env', '@babel/preset-react'],
                 plugins: [
                     [
                         'i18next-extract',
