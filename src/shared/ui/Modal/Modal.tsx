@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
-    MouseEvent, ReactNode, useCallback, useEffect,
+    MouseEvent, ReactNode, useCallback, useEffect, useState,
 } from 'react';
 import { Portal } from 'shared/ui/Portal/Portal';
 import cls from './Modal.module.scss';
@@ -9,6 +9,7 @@ export interface ModalProps {
     children?: ReactNode;
     className?: string;
     isOpen?: boolean;
+    lazy?: boolean;
     onClose?: () => void;
 }
 
@@ -18,7 +19,10 @@ export const Modal = (props: ModalProps) => {
         className,
         isOpen,
         onClose,
+        lazy,
     } = props;
+    
+    const [isMounted, setIsMounted] = useState(false);
     
     const handleClose = useCallback(() => {
         if (onClose) {
@@ -26,7 +30,7 @@ export const Modal = (props: ModalProps) => {
         }
     }, [onClose]);
     
-    const handleContentClick = (event: MouseEvent) => {
+    const onContentClick = (event: MouseEvent) => {
         event.stopPropagation();
     };
     
@@ -43,12 +47,19 @@ export const Modal = (props: ModalProps) => {
     };
     
     useEffect(() => {
-        window.addEventListener('keydown', onKeyDown);
+        if (isOpen) {
+            window.addEventListener('keydown', onKeyDown);
+            setIsMounted(true);
+        }
         
         return () => {
             window.removeEventListener('keydown', onKeyDown);
         };
-    }, [onKeyDown]);
+    }, [isOpen, onKeyDown]);
+    
+    if (lazy && !isMounted) {
+        return null;
+    }
     
     return (
         <Portal>
@@ -59,7 +70,7 @@ export const Modal = (props: ModalProps) => {
                 >
                     <div
                         className={cls.content}
-                        onClick={handleContentClick}
+                        onClick={onContentClick}
                     >
                         {children}
                     </div>

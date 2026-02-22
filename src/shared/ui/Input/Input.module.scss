@@ -1,0 +1,35 @@
+.Input {
+    position: relative;
+    display: flex;
+}
+
+.placeholder {
+    position: absolute;
+    top: 50%;
+    left: 6px;
+    display: inline-block;
+    margin: 0 4px;
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+    transform: translateY(-50%);
+}
+
+input {
+    height: 50px;
+    padding: 0 10px;
+    border: 1px solid var(--primary-color);
+    border-radius: 8px;
+    background: transparent;
+    color: var(--primary-color);
+
+    &:focus {
+        border-color: var(--primary-color);
+        outline: none;
+    }
+
+    &:focus + .placeholder,
+    &:not(:placeholder-shown) + .placeholder {
+        top: 18%;
+        font-size: 12px;
+    }
+}
