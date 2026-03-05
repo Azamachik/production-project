@@ -42,7 +42,7 @@ module.exports = {
             markupOnly: true,
             ignoreAttribute: ['to', 'data-testid'],
         }],
-        'max-len': ['error', { ignoreComments: true, code: 100 }],
+        'max-len': ['error', { ignoreComments: true, code: 120 }],
         'no-trailing-spaces': 'off',
         'no-undef': 'off',
         'jsx-a11y/click-events-have-key-events': 'off',

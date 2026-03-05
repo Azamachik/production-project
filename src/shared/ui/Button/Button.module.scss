@@ -3,6 +3,10 @@
     border-radius: var(--border-radius);
     color: var(--primary-color);
     cursor: pointer;
+    &:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+    }
 }
 
 .clear {

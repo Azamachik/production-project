@@ -4,10 +4,14 @@
   "Increment": "",
   "Lorem ipsum dolor": "Lorem ipsum dolor",
   "throw error": "throw error",
+  "Введите имя пользователя": "Enter username",
+  "Введите пароль": "Enter password",
   "Войти": "Sign in",
+  "Выйти": "Log out",
   "Главная": "Home",
   "Имя пользователя": "Username",
   "Короткий язык": "Eng",
+  "Неправильный логин или пароль": "Incorrect login or password",
   "О сайте": "About",
   "Обновить страницу": "Reload page",
   "Пароль": "Password",
@@ -16,5 +20,6 @@
   "Произошла ошибка": "Ooops, got a prolem",
   "Профиль": "Profile",
   "Статьи": "Articles",
+  "Форма авторизации": "Login form",
   "Язык": "English"
 }
