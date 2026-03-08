@@ -18,14 +18,16 @@ webpack.WebpackPluginInstance[] {
             __IS_DEV__: JSON.stringify(isDev),
         }),
     ];
-
+    
+    plugins.push(new BundleAnalyzerPlugin());
+    
     if (isDev) {
         plugins.push(new ReactRefreshWebpackPlugin(
             {
                 overlay: false,
             },
         ));
-        plugins.push(new BundleAnalyzerPlugin());
+        // plugins.push(new BundleAnalyzerPlugin());
     }
 
     return plugins;
