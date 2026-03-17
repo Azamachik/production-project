@@ -1,10 +1,11 @@
 .app_light_theme {
-    --bg-color: rgba(239, 245, 246, 100%);
-    --inverted-bg-color: rgba(12, 18, 20, 100%);
-    --navbar-bg-color: rgba(239, 245, 246, 100%);
-    --sidebar-bg-color: rgba(226, 238, 241, 100%);
-    --primary-color: rgba(94, 211, 243, 100%);
+    --bg-color: rgb(239 245 246 / 100%);
+    --inverted-bg-color: rgb(12 18 20 / 100%);
+    --navbar-bg-color: rgb(239 245 246 / 100%);
+    --sidebar-bg-color: rgb(226 238 241 / 100%);
+    --primary-color: rgb(94 211 243 / 100%);
     --secondary-color: #6899ff;
-    --inverted-primary-color: rgba(108, 217, 139 / 100%);
+    --inverted-primary-color: rgb(108 217 139 / 100%);
     --inverted-secondary-color: #97ff97;
+    --text-color: dark;
 }

@@ -24,8 +24,10 @@ export const useDynamicModuleLoad = (
         
         return () => {
             if (removeAfterUnmount) {
-                store.reducerManager.remove('loginForm');
-                dispatch({ type: '@DESTROY loginForm reducer' });
+                Object.entries(reducers).forEach(([name]: ReducersListEntry) => {
+                    store.reducerManager.remove(`${name}`);
+                    dispatch({ type: `@DESTROY ${name} reducer` });
+                });
             }
         };
         // eslint-disable-next-line react-hooks/exhaustive-deps

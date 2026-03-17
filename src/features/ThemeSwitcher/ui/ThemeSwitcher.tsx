@@ -3,13 +3,14 @@ import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { useTheme } from 'app/providers/ThemeProvider';
 import Moon from 'shared/assets/icons/moon.svg';
 import Sun from 'shared/assets/icons/sun.svg';
+import { memo } from 'react';
 import cls from './ThemeSwitcher.module.scss';
 
 interface ThemeSwitcherProps {
     className?: string;
 }
 
-export const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
+export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
     const { theme, toggleTheme } = useTheme();
 
     return (
@@ -23,4 +24,6 @@ export const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
                 : <Sun className={classNames(cls.icon, {}, [className])} />}
         </Button>
     );
-};
+});
+
+ThemeSwitcher.displayName = 'ThemeSwitcher';

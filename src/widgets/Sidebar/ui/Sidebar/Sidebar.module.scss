@@ -26,17 +26,6 @@
     transition: left 0.3s ease;
 }
 
-.item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 16px;
-}
-
-.link {
-    margin-left: 8px;
-    opacity: 1;
-}
-
 .collapsedButton {
     position: absolute;
     top: 50%;
@@ -55,16 +44,7 @@
         flex-direction: column;
     }
 
-    .link {
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    }
-
     .collapsedButton {
         left: 15%;
     }
-}
-
-.icon {
-    fill: var(--primary-color);
 }

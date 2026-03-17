@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
-    ChangeEvent, InputHTMLAttributes, useEffect, useRef, useState,
+    ChangeEvent, InputHTMLAttributes, memo, useEffect, useRef, useState,
 } from 'react';
 import cls from './Input.module.scss';
 
@@ -16,7 +16,7 @@ interface InputProps extends InputHTMLProps {
     required?: boolean;
 }
 
-export const Input = (props: InputProps) => {
+export const Input = memo((props: InputProps) => {
     const {
         className,
         type = 'text',
@@ -72,4 +72,6 @@ export const Input = (props: InputProps) => {
             </span>
         </div>
     );
-};
+});
+
+Input.displayName = 'Input';
