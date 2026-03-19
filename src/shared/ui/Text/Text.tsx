@@ -22,7 +22,7 @@ export const Text = memo((props: TextProps) => {
         variant = TextTheme.PRIMARY,
     } = props;
     
-    const additional: string[] = [
+    const additional: Array<string | undefined> = [
         className,
         cls[variant],
     ];

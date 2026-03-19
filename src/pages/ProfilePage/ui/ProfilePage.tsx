@@ -1,8 +1,8 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { ReducersList, useDynamicModuleLoad } from 'shared/lib/hooks/useDynamicModuleLoad/useDynamicModuleLoad';
-import { profileReducer } from 'entities/Profile';
-import { useTranslation } from 'react-i18next';
-import { memo } from 'react';
+import { profileReducer, ProfileCard, fetchProfileData } from 'entities/Profile';
+import { memo, useEffect } from 'react';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 
 interface ProfilePageProps {
     className?: string;
@@ -13,13 +13,17 @@ const initialReducers: ReducersList = {
 };
 
 const ProfilePage = memo(({ className }: ProfilePageProps) => {
-    const { t } = useTranslation();
+    const dispatch = useAppDispatch();
     
     useDynamicModuleLoad(initialReducers, true);
     
+    useEffect(() => {
+        dispatch(fetchProfileData());
+    }, [dispatch]);
+
     return (
         <div className={classNames('', {}, [className])}>
-            {t('Профиль')}
+            <ProfileCard />
         </div>
     );
 });

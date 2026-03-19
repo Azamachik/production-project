@@ -1,4 +1,4 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import {
     MouseEvent, ReactNode, useCallback, useEffect, useState,
 } from 'react';
@@ -41,7 +41,7 @@ export const Modal = (props: ModalProps) => {
         }
     }, [handleClose]);
     
-    const mods: Record<string, boolean> = {
+    const mods: Mods = {
         [cls.opened]: isOpen,
         [cls.closed]: !isOpen,
     };
