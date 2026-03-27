@@ -30,6 +30,10 @@ input {
     &:focus + .placeholder,
     &:not(:placeholder-shown) + .placeholder {
         top: 18%;
-        font-size: 12px;
+        font-size: 14px;
     }
+}
+
+.readonly {
+    opacity: 0.6;
 }

@@ -1,31 +1,15 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { ReducersList, useDynamicModuleLoad } from 'shared/lib/hooks/useDynamicModuleLoad/useDynamicModuleLoad';
-import { profileReducer, ProfileCard, fetchProfileData } from 'entities/Profile';
-import { memo, useEffect } from 'react';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { memo } from 'react';
+import { EditableProfileCard } from 'features/EditableProfileCard';
 
 interface ProfilePageProps {
     className?: string;
 }
 
-const initialReducers: ReducersList = {
-    profile: profileReducer,
-};
-
-const ProfilePage = memo(({ className }: ProfilePageProps) => {
-    const dispatch = useAppDispatch();
-    
-    useDynamicModuleLoad(initialReducers, true);
-    
-    useEffect(() => {
-        dispatch(fetchProfileData());
-    }, [dispatch]);
-
-    return (
-        <div className={classNames('', {}, [className])}>
-            <ProfileCard />
-        </div>
-    );
-});
+const ProfilePage = memo(({ className }: ProfilePageProps) => (
+    <div className={classNames('', {}, [className])}>
+        <EditableProfileCard />
+    </div>
+));
 
 export default ProfilePage;

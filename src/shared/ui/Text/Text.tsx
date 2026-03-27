@@ -7,11 +7,18 @@ export enum TextTheme {
     DANGER = 'danger',
 }
 
+export enum TextAlign {
+    LEFT = 'left',
+    RIGHT = 'right',
+    CENTER = 'center',
+}
+
 interface TextProps {
     className?: string;
     title?: string;
     text?: string;
     variant?: TextTheme;
+    align?: TextAlign;
 }
 
 export const Text = memo((props: TextProps) => {
@@ -20,11 +27,13 @@ export const Text = memo((props: TextProps) => {
         title,
         text,
         variant = TextTheme.PRIMARY,
+        align = TextAlign.LEFT,
     } = props;
     
     const additional: Array<string | undefined> = [
         className,
         cls[variant],
+        cls[align],
     ];
     
     return (

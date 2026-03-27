@@ -1,21 +1,31 @@
 .ProfileCard {
-    padding: 24px;
-    border-radius: var(--border-radius);
     background: var(--profile-card-color);
+    border-radius: var(--border-radius);
 }
 
 .header {
+    padding: 24px 8px;
+    border-radius: var(--border-radius);
     display: flex;
-}
-
-.editBtn {
-    margin-left: auto;
+    justify-content: space-evenly;
+    align-items: center;
+    background: var(--sidebar-bg-color);
 }
 
 .data {
-    gap: 24px;
+    padding: 24px 8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
 .input {
-    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.loading, .error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
 }

@@ -23,6 +23,13 @@
     background: none;
 }
 
+.danger {
+    border: 1.5px solid var(--danger-color);
+    border-radius: 8px;
+    background: none;
+    color: var(--danger-color);
+}
+
 .background {
     border: none;
     background-color: var(--bg-color);

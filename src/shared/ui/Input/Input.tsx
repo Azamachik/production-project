@@ -1,4 +1,4 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import {
     ChangeEvent, InputHTMLAttributes, memo, useEffect, useRef, useState,
 } from 'react';
@@ -9,11 +9,12 @@ type InputHTMLProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onC
 interface InputProps extends InputHTMLProps {
     className?: string;
     type?: string;
-    value?: string;
+    value?: string | number;
     onChange?: (value: string) => void;
     autoFocus?: boolean;
     placeholder?: string;
     required?: boolean;
+    readonly?: boolean;
 }
 
 export const Input = memo((props: InputProps) => {
@@ -25,9 +26,9 @@ export const Input = memo((props: InputProps) => {
         autoFocus,
         required,
         placeholder,
+        readonly,
         ...otherProps
     } = props;
-    
     const [isFocused, setIsFocused] = useState(false);
     const ref = useRef<HTMLInputElement>(null);
     
@@ -50,8 +51,12 @@ export const Input = memo((props: InputProps) => {
         }
     }, [autoFocus]);
     
+    const mods: Mods = {
+        [cls.readonly]: readonly,
+    };
+    
     return (
-        <div className={classNames(cls.Input, {}, [className])}>
+        <div className={classNames(cls.Input, mods, [className])}>
             <input
                 data-testid="input"
                 ref={ref}
@@ -62,6 +67,7 @@ export const Input = memo((props: InputProps) => {
                 onBlur={onBlur}
                 placeholder=""
                 required={required}
+                readOnly={readonly}
                 {...otherProps}
             />
             <span
