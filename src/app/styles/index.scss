@@ -2,6 +2,7 @@
 @import "variables/global";
 @import "themes/dark";
 @import "themes/light";
+@import "themes/orange";
 
 .body {
     color: var(--primary-color);
@@ -12,6 +13,7 @@
     min-height: 100vh;
     background: var(--bg-color);
     color: var(--text-color);
+    line-height: 1.5;
 }
 
 .content-page {
@@ -20,5 +22,8 @@
 
 .page-wrapper {
     flex-grow: 1;
-    padding: 0 24px;
+    overflow-y: auto;
+    width: 100%;
+    height: calc(100vh - var(--navbar-height));
+    padding: 20px 30px 20px 45px;
 }

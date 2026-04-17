@@ -46,7 +46,9 @@ export const EditableProfileCard = ({ className }: EditableProfileCardProps) => 
     useDynamicModuleLoad(initialReducers, true);
     
     useEffect(() => {
-        dispatch(fetchProfileData());
+        if (__PROJECT__ !== 'storybook') {
+            dispatch(fetchProfileData());
+        }
     }, [dispatch]);
     
     const onFirstnameChange = useCallback((value: string) => {

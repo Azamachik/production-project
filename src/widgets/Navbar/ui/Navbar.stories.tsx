@@ -12,12 +12,16 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Light: Story = {
-    decorators: [StoreDecorator({})],
+export const Primary: Story = {
+    decorators: [StoreDecorator({
+        user: { authData: {} },
+    })],
 };
 
-export const Dark: Story = {
-    decorators: [ThemeDecorator(Theme.DARK), StoreDecorator({})],
+export const PrimaryDark: Story = {
+    decorators: [ThemeDecorator(Theme.DARK), StoreDecorator({
+        user: { authData: {} },
+    })],
 };
 
 export const Authenticated: Story = {

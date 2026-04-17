@@ -14,12 +14,12 @@
 }
 
 textarea {
-    max-height: 200px;
-    min-height: 150px;
-    height: 150px;
-    max-width: 350px;
-    min-width: 350px;
     width: 350px;
+    min-width: 350px;
+    max-width: 350px;
+    height: 150px;
+    min-height: 150px;
+    max-height: 200px;
     padding: 16px 12px;
     border: 1px solid var(--primary-color);
     border-radius: 8px;
