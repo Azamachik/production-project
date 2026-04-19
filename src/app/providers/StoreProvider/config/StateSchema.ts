@@ -1,6 +1,6 @@
 import { CounterSchema } from 'entities/Counter';
 import { UserSchema } from 'entities/User';
-import { LoginSchema } from 'features/AuthByUsername/model/types/LoginSchema';
+import { LoginSchema } from 'features/AuthByUsername';
 import {
     AnyAction, Reducer, ReducersMapObject, EnhancedStore, 
 } from '@reduxjs/toolkit';
@@ -10,6 +10,7 @@ import { To } from 'history';
 import { NavigateOptions } from 'react-router';
 import { ProfileSchema } from 'features/EditableProfileCard';
 import { ArticleDetailsSchema } from 'entities/Article';
+import { ArticleDetailsCommentSchema } from 'pages/ArticleDetailsPage';
 
 export interface StateSchema {
     counter: CounterSchema,
@@ -17,6 +18,7 @@ export interface StateSchema {
     loginForm?: LoginSchema,
     profile?: ProfileSchema,
     articleDetails?: ArticleDetailsSchema,
+    articleDetailsComments?: ArticleDetailsCommentSchema,
 }
 
 export type StateSchemaKey = keyof StateSchema;

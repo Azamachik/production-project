@@ -1,0 +1,11 @@
+.CommentItem {
+    border: 2px solid var(--primary-color);
+    border-radius: 8px;
+    padding: 8px 6px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
