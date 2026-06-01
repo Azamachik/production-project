@@ -1,8 +1,14 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
-import { Article, ArticleBlockType, ArticleType } from '../../model/types/article';
+import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
+
+import type { Meta, StoryObj } from '@storybook/react';
+import {
+    Article,
+    ArticleBlockType,
+    ArticleType,
+} from '../../model/types/article';
+
 import { ArticleDetails } from './ArticleDetails';
 
 const meta = {
@@ -49,39 +55,48 @@ const article: Article = {
         },
     ],
 };
- 
+
 export const Primary: Story = {
     args: { id: article.id },
-    decorators: [StoreDecorator({
-        articleDetails: {
-            data: article,
-        },
-    })],
+    decorators: [
+        StoreDecorator({
+            articleDetails: {
+                data: article,
+            },
+        }),
+    ],
 };
 
 export const PrimaryDark: Story = {
     args: { id: article.id },
-    decorators: [ThemeDecorator(Theme.DARK), StoreDecorator({
-        articleDetails: {
-            data: article,
-        },
-    })],
+    decorators: [
+        ThemeDecorator(Theme.DARK),
+        StoreDecorator({
+            articleDetails: {
+                data: article,
+            },
+        }),
+    ],
 };
 
 export const Loading: Story = {
     args: { id: article.id },
-    decorators: [StoreDecorator({
-        articleDetails: {
-            isLoading: true,
-        },
-    })],
+    decorators: [
+        StoreDecorator({
+            articleDetails: {
+                isLoading: true,
+            },
+        }),
+    ],
 };
 
 export const Error: Story = {
     args: { id: article.id },
-    decorators: [StoreDecorator({
-        articleDetails: {
-            error: 'error',
-        },
-    })],
+    decorators: [
+        StoreDecorator({
+            articleDetails: {
+                error: 'error',
+            },
+        }),
+    ],
 };

@@ -1,6 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
+import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
+
+import type { Meta, StoryObj } from '@storybook/react';
 import { Skeleton } from './Skeleton';
 
 const meta = {
@@ -31,7 +32,6 @@ export const Circle: Story = {
         width: 200,
         height: 200,
         borderRadius: '50%',
-
     },
 };
 

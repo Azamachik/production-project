@@ -1,15 +1,16 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import { memo } from 'react';
 import { EditableProfileCard } from 'features/EditableProfileCard';
+import { memo } from 'react';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { Page } from 'shared/ui/Page/Page';
 
 interface ProfilePageProps {
     className?: string;
 }
 
 const ProfilePage = memo(({ className }: ProfilePageProps) => (
-    <div className={classNames('', {}, [className])}>
+    <Page className={classNames('', {}, [className])}>
         <EditableProfileCard />
-    </div>
+    </Page>
 ));
 
 export default ProfilePage;

@@ -1,8 +1,7 @@
+import { MouseEvent, ReactNode, useCallback, useEffect, useState } from 'react';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
-import {
-    MouseEvent, ReactNode, useCallback, useEffect, useState,
-} from 'react';
 import { Portal } from 'shared/ui/Portal/Portal';
+
 import cls from './Modal.module.scss';
 
 export interface ModalProps {
@@ -14,64 +13,55 @@ export interface ModalProps {
 }
 
 export const Modal = (props: ModalProps) => {
-    const {
-        children,
-        className,
-        isOpen,
-        onClose,
-        lazy,
-    } = props;
-    
+    const { children, className, isOpen, onClose, lazy } = props;
+
     const [isMounted, setIsMounted] = useState(false);
-    
+
     const handleClose = useCallback(() => {
         if (onClose) {
             onClose();
         }
     }, [onClose]);
-    
+
     const onContentClick = (event: MouseEvent) => {
         event.stopPropagation();
     };
-    
-    const onKeyDown = useCallback((event: KeyboardEvent) => {
-        if (event.key === 'Escape') {
-            event.stopPropagation();
-            handleClose();
-        }
-    }, [handleClose]);
-    
+
+    const onKeyDown = useCallback(
+        (event: KeyboardEvent) => {
+            if (event.key === 'Escape') {
+                event.stopPropagation();
+                handleClose();
+            }
+        },
+        [handleClose],
+    );
+
     const mods: Mods = {
         [cls.opened]: isOpen,
         [cls.closed]: !isOpen,
     };
-    
+
     useEffect(() => {
         if (isOpen) {
             window.addEventListener('keydown', onKeyDown);
             setIsMounted(true);
         }
-        
+
         return () => {
             window.removeEventListener('keydown', onKeyDown);
         };
     }, [isOpen, onKeyDown]);
-    
+
     if (lazy && !isMounted) {
         return null;
     }
-    
+
     return (
         <Portal>
             <div className={classNames(cls.Modal, mods, [className])}>
-                <div
-                    className={cls.overlay}
-                    onClick={handleClose}
-                >
-                    <div
-                        className={cls.content}
-                        onClick={onContentClick}
-                    >
+                <div className={cls.overlay} onClick={handleClose}>
+                    <div className={cls.content} onClick={onContentClick}>
                         {children}
                     </div>
                 </div>

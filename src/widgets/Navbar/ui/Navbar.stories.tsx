@@ -1,7 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
+import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
+
+import type { Meta, StoryObj } from '@storybook/react';
 import { Navbar } from './Navbar';
 
 const meta = {
@@ -13,19 +14,26 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-    decorators: [StoreDecorator({
-        user: { authData: {} },
-    })],
+    decorators: [
+        StoreDecorator({
+            user: { authData: {} },
+        }),
+    ],
 };
 
 export const PrimaryDark: Story = {
-    decorators: [ThemeDecorator(Theme.DARK), StoreDecorator({
-        user: { authData: {} },
-    })],
+    decorators: [
+        ThemeDecorator(Theme.DARK),
+        StoreDecorator({
+            user: { authData: {} },
+        }),
+    ],
 };
 
 export const Authenticated: Story = {
-    decorators: [StoreDecorator({
-        user: { authData: {} },
-    })],
+    decorators: [
+        StoreDecorator({
+            user: { authData: {} },
+        }),
+    ],
 };

@@ -1,9 +1,10 @@
 import { useContext } from 'react';
+
 import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from './ThemeContext';
 
 interface UseThemeResult {
-  theme: Theme;
-  toggleTheme: () => void;
+    theme: Theme;
+    toggleTheme: () => void;
 }
 
 export const useTheme = (): UseThemeResult => {
@@ -12,17 +13,17 @@ export const useTheme = (): UseThemeResult => {
     const toggleTheme = () => {
         let newTheme;
         switch (theme) {
-        case Theme.DARK:
-            newTheme = Theme.ORANGE;
-            break;
-        case Theme.ORANGE:
-            newTheme = Theme.LIGHT;
-            break;
-        case Theme.LIGHT:
-            newTheme = Theme.DARK;
-            break;
-        default:
-            newTheme = Theme.LIGHT;
+            case Theme.DARK:
+                newTheme = Theme.ORANGE;
+                break;
+            case Theme.ORANGE:
+                newTheme = Theme.LIGHT;
+                break;
+            case Theme.LIGHT:
+                newTheme = Theme.DARK;
+                break;
+            default:
+                newTheme = Theme.LIGHT;
         }
         setTheme?.(newTheme);
         document.body.className = newTheme;

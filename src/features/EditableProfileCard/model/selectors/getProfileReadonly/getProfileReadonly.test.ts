@@ -1,4 +1,5 @@
 import { StateSchema } from 'app/providers/StoreProvider';
+
 import { getProfileReadonly } from './getProfileReadonly';
 
 describe('getProfileReadonly', () => {
@@ -10,7 +11,7 @@ describe('getProfileReadonly', () => {
         };
         expect(getProfileReadonly(state as StateSchema)).toBe(true);
     });
-    
+
     test('Should return false working with empty state', () => {
         const state: DeepPartial<StateSchema> = {};
         expect(getProfileReadonly(state as StateSchema)).toBe(false);

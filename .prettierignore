@@ -1,0 +1,10 @@
+node_modules/
+build/
+dist/
+storybook-static/
+.idea/
+.vscode/
+*.log
+.husky/
+.git/
+.github/

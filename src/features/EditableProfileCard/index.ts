@@ -2,9 +2,6 @@ export { EditableProfileCard } from './ui/EditableProfileCard/EditableProfileCar
 
 export { fetchProfileData } from './model/services/fetchProfileData/fetchProfileData';
 
-export {
-    profileReducer,
-    profileActions,
-} from './model/slices/profileSlices';
+export { profileReducer, profileActions } from './model/slices/profileSlices';
 
 export { ProfileSchema } from './model/types/EditableProfileCard';

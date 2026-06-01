@@ -1,5 +1,7 @@
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
+
 import { Article, ArticleBlockType, ArticleType } from '../../types/article';
+
 import { fetchArticleById } from './fetchArticleById';
 
 const data: Article = {
@@ -50,12 +52,14 @@ describe('fetchArticleById', () => {
         expect(thunk.api.get).toHaveBeenCalled();
         expect(result.meta.requestStatus).toBe('fulfilled');
         expect(result.payload).toEqual(data);
-    });        
-    
+    });
+
     test('Server return error', async () => {
         const thunk = new TestAsyncThunk(fetchArticleById);
 
-        thunk.api.get.mockReturnValue(Promise.reject(new Error('Article Not Found')));
+        thunk.api.get.mockReturnValue(
+            Promise.reject(new Error('Article Not Found')),
+        );
 
         const result = await thunk.callThunk('2');
 

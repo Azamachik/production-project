@@ -2,6 +2,9 @@ export { ArticleDetailsPageAsync as ArticleDetailsPage } from './ui/ArticleDetai
 
 export { ArticleDetailsCommentSchema } from './model/types/ArticleDetailsCommentSchema';
 
-export { articleDetailsCommentsReducer, getArticleComments } from './model/slices/articleDetailsCommentsSlice';
+export {
+    articleDetailsCommentsReducer,
+    getArticleComments,
+} from './model/slices/articleDetailsCommentsSlice';
 
 export { fetchCommentsByArticleId } from './model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';

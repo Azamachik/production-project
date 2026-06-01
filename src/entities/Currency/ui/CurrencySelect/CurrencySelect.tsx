@@ -1,6 +1,7 @@
-import { Select, SelectOption } from 'shared/ui/Select/Select';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { Select, SelectOption } from 'shared/ui/Select/Select';
+
 import { Currency } from '../../model/types/Currency';
 
 interface CurrencySelectProps {
@@ -18,13 +19,8 @@ const options: SelectOption<Currency>[] = [
 
 export const CurrencySelect = (props: CurrencySelectProps) => {
     const { t } = useTranslation('profile');
-    const {
-        className,
-        value,
-        readonly,
-        onChange,
-    } = props;
-    
+    const { className, value, readonly, onChange } = props;
+
     return (
         <Select
             className={classNames('', {}, [className])}

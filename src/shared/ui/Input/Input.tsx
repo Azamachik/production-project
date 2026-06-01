@@ -1,10 +1,19 @@
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import {
-    ChangeEvent, InputHTMLAttributes, memo, useEffect, useRef, useState,
+    ChangeEvent,
+    InputHTMLAttributes,
+    memo,
+    useEffect,
+    useRef,
+    useState,
 } from 'react';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
+
 import cls from './Input.module.scss';
 
-type InputHTMLProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>;
+type InputHTMLProps = Omit<
+    InputHTMLAttributes<HTMLInputElement>,
+    'value' | 'onChange'
+>;
 
 interface InputProps extends InputHTMLProps {
     className?: string;
@@ -31,30 +40,30 @@ export const Input = memo((props: InputProps) => {
     } = props;
     const [isFocused, setIsFocused] = useState(false);
     const ref = useRef<HTMLInputElement>(null);
-    
+
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         onChange?.(event.target.value);
     };
-    
+
     const onFocus = () => {
         setIsFocused(true);
     };
-    
+
     const onBlur = () => {
         setIsFocused(false);
     };
-    
+
     useEffect(() => {
         if (autoFocus) {
             setIsFocused(true);
             ref.current?.focus();
         }
     }, [autoFocus]);
-    
+
     const mods: Mods = {
         [cls.readonly]: readonly,
     };
-    
+
     return (
         <div className={classNames(cls.Input, mods, [className])}>
             <input
@@ -70,10 +79,7 @@ export const Input = memo((props: InputProps) => {
                 readOnly={readonly}
                 {...otherProps}
             />
-            <span
-                data-testid="input-placeholder"
-                className={cls.placeholder}
-            >
+            <span data-testid="input-placeholder" className={cls.placeholder}>
                 {placeholder}
             </span>
         </div>

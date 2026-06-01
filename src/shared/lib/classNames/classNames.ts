@@ -8,7 +8,6 @@ export function classNames(
     return [
         cls,
         ...additional.filter(Boolean),
-        ...Object.keys(mods)
-            .filter((className) => mods[className]),
+        ...Object.keys(mods).filter((className) => mods[className]),
     ].join(' ');
 }

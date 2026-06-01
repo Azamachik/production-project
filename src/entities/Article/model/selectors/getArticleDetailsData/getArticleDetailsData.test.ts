@@ -1,8 +1,10 @@
 import { StateSchema } from 'app/providers/StoreProvider';
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
-import { getArticleDetailsData } from './getArticleDetailsData';
+
 import { Article, ArticleBlockType, ArticleType } from '../../types/article';
+
+import { getArticleDetailsData } from './getArticleDetailsData';
 
 describe('getArticleDetailsData', () => {
     const data: Article = {
@@ -41,7 +43,7 @@ describe('getArticleDetailsData', () => {
             },
         ],
     };
-    
+
     test('Should return data', () => {
         const state: DeepPartial<StateSchema> = {
             articleDetails: {
@@ -50,7 +52,7 @@ describe('getArticleDetailsData', () => {
         };
         expect(getArticleDetailsData(state as StateSchema)).toEqual(data);
     });
-    
+
     test('Should return undefined working with empty state', () => {
         const state: DeepPartial<StateSchema> = {};
         expect(getArticleDetailsData(state as StateSchema)).toBeUndefined();

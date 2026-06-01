@@ -4,23 +4,17 @@ import { Profile } from 'entities/Profile';
 
 export const fetchProfileData = createAsyncThunk<
     Profile,
-    void,
+    string,
     ThunkConfig<string>
->(
-    'profile/fetchProfileData',
-    async (_, thunkAPI) => {
-        const {
-            extra,
-            rejectWithValue,
-        } = thunkAPI;
-        
-        try {
-            const response = await extra.api.get<Profile>('/profile');
+>('profile/fetchProfileData', async (profileId, thunkAPI) => {
+    const { extra, rejectWithValue } = thunkAPI;
 
-            return response.data;
-        } catch (error) {
-            console.log(error);
-            return rejectWithValue('error');
-        }
-    },
-);
+    try {
+        const response = await extra.api.get<Profile>(`/profile/${profileId}`);
+
+        return response.data;
+    } catch (error) {
+        console.log(error);
+        return rejectWithValue('error');
+    }
+});

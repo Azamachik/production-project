@@ -1,7 +1,9 @@
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
-import { validateProfileData } from './validateProfileData';
+
 import { ValidateProfileError } from '../../types/EditableProfileCard';
+
+import { validateProfileData } from './validateProfileData';
 
 const data = {
     username: 'Admin',
@@ -18,7 +20,7 @@ describe('validateProfileData', () => {
         const result = validateProfileData(data);
         expect(result).toEqual([]);
     });
-    
+
     test('Empty first name and last name', () => {
         const result = validateProfileData({
             ...data,
@@ -27,7 +29,7 @@ describe('validateProfileData', () => {
         });
         expect(result).toEqual([ValidateProfileError.INCORRECT_USER_DATA]);
     });
-    
+
     test('Invalid age', () => {
         const result = validateProfileData({
             ...data,
@@ -35,7 +37,7 @@ describe('validateProfileData', () => {
         });
         expect(result).toEqual([ValidateProfileError.INCORRECT_AGE]);
     });
-    
+
     test('Invalid all possible fields', () => {
         const result = validateProfileData({});
         expect(result).toEqual([

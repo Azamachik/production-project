@@ -1,8 +1,6 @@
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { screen } from '@testing-library/react';
-import {
-    renderWithTranslation,
-} from 'shared/lib/tests/renderWithTranslation/renderWithTranslation';
+import { renderWithTranslation } from 'shared/lib/tests/renderWithTranslation/renderWithTranslation';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 
 describe('Button', () => {
     test('Renders correct with text in', () => {
@@ -11,7 +9,9 @@ describe('Button', () => {
     });
 
     test('Applies correct CSS class when variant is provided', () => {
-        renderWithTranslation(<Button variant={ButtonTheme.CLEAR}>TEST</Button>);
+        renderWithTranslation(
+            <Button variant={ButtonTheme.CLEAR}>TEST</Button>,
+        );
         expect(screen.getByText('TEST')).toHaveClass('clear');
     });
 });

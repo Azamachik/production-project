@@ -1,15 +1,17 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useTranslation } from 'react-i18next';
-import { Input } from 'shared/ui/Input/Input';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { Currency, CurrencySelect } from 'entities/Currency';
 import { Country, CountrySelect } from 'entities/Country';
-import { Textarea } from 'shared/ui/Textarea/Textarea';
+import { Currency, CurrencySelect } from 'entities/Currency';
+import { KeyboardEvent } from 'react';
+import { useTranslation } from 'react-i18next';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
+import { Input } from 'shared/ui/Input/Input';
 import { Loader } from 'shared/ui/Loader/Loader';
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
-import { KeyboardEvent } from 'react';
-import cls from './ProfileCard.module.scss';
+import { Textarea } from 'shared/ui/Textarea/Textarea';
+
 import { Profile } from '../model/types/Profile';
+
+import cls from './ProfileCard.module.scss';
 
 interface ProfileCardProps {
     className?: string;
@@ -49,15 +51,25 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
     if (isLoading) {
         return (
-            <div className={classNames(cls.ProfileCard, {}, [className, cls.error])}>
+            <div
+                className={classNames(cls.ProfileCard, {}, [
+                    className,
+                    cls.error,
+                ])}
+            >
                 <Loader />
             </div>
         );
     }
-    
+
     if (error) {
         return (
-            <div className={classNames(cls.ProfileCard, {}, [className, cls.error])}>
+            <div
+                className={classNames(cls.ProfileCard, {}, [
+                    className,
+                    cls.error,
+                ])}
+            >
                 <Text
                     variant={TextTheme.DANGER}
                     title={t('Произошла ошибка при загрузке профиля')}
@@ -67,19 +79,19 @@ export const ProfileCard = (props: ProfileCardProps) => {
             </div>
         );
     }
-    
+
     const onAgeKeyDown = (event: KeyboardEvent) => {
         if (!/[0-9]/.test(event.key) && event.key !== 'Backspace') {
             event.preventDefault();
         }
     };
-    
+
     const onNameKeyDown = (event: KeyboardEvent) => {
         if (!/[A-Z]|[a-z]|[А-Я]|[а-я]/.test(event.key)) {
             event.preventDefault();
         }
     };
-    
+
     return (
         <div className={classNames(cls.ProfileCard, {}, [className])}>
             <div className={cls.header}>
@@ -89,6 +101,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     size={200}
                 />
                 <Textarea
+                    className={cls.textarea}
                     placeholder={t('Описание')}
                     value={data?.description}
                     readonly={readonly}

@@ -1,6 +1,7 @@
-import { Select, SelectOption } from 'shared/ui/Select/Select';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { Select, SelectOption } from 'shared/ui/Select/Select';
+
 import { Country } from '../../model/types/Country';
 
 interface CountrySelectProps {
@@ -19,13 +20,8 @@ const options: SelectOption<Country>[] = [
 
 export const CountrySelect = (props: CountrySelectProps) => {
     const { t } = useTranslation('profile');
-    const {
-        className,
-        value,
-        readonly,
-        onChange,
-    } = props;
-    
+    const { className, value, readonly, onChange } = props;
+
     return (
         <Select
             className={classNames('', {}, [className])}

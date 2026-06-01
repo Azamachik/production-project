@@ -1,31 +1,41 @@
+import {
+    AnyAction,
+    Reducer,
+    ReducersMapObject,
+    EnhancedStore,
+} from '@reduxjs/toolkit';
+import { AxiosInstance } from 'axios';
+import { ArticleDetailsSchema } from 'entities/Article';
 import { CounterSchema } from 'entities/Counter';
 import { UserSchema } from 'entities/User';
+import { AddCommentFormSchema } from 'features/AddCommentForm';
 import { LoginSchema } from 'features/AuthByUsername';
-import {
-    AnyAction, Reducer, ReducersMapObject, EnhancedStore, 
-} from '@reduxjs/toolkit';
-import { CombinedState } from 'redux';
-import { AxiosInstance } from 'axios';
-import { To } from 'history';
-import { NavigateOptions } from 'react-router';
 import { ProfileSchema } from 'features/EditableProfileCard';
-import { ArticleDetailsSchema } from 'entities/Article';
+import { To } from 'history';
 import { ArticleDetailsCommentSchema } from 'pages/ArticleDetailsPage';
+import { ArticlesSchema } from 'pages/ArticlesPage';
+import { NavigateOptions } from 'react-router';
+import { CombinedState } from 'redux';
 
 export interface StateSchema {
-    counter: CounterSchema,
-    user: UserSchema
-    loginForm?: LoginSchema,
-    profile?: ProfileSchema,
-    articleDetails?: ArticleDetailsSchema,
-    articleDetailsComments?: ArticleDetailsCommentSchema,
+    counter: CounterSchema;
+    user: UserSchema;
+    loginForm?: LoginSchema;
+    profile?: ProfileSchema;
+    articleDetails?: ArticleDetailsSchema;
+    articleDetailsComments?: ArticleDetailsCommentSchema;
+    addCommentForm?: AddCommentFormSchema;
+    articles?: ArticlesSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;
 
 export interface ReducerManager {
     getReducerMap: () => ReducersMapObject<StateSchema>;
-    reduce: (state: StateSchema, action: AnyAction) => CombinedState<StateSchema>;
+    reduce: (
+        state: StateSchema,
+        action: AnyAction,
+    ) => CombinedState<StateSchema>;
     add: (key: StateSchemaKey, reducer: Reducer) => void;
     remove: (key: StateSchemaKey) => void;
 }

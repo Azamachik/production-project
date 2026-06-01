@@ -1,5 +1,3 @@
 import AppRouter from './components/AppRouter';
 
-export {
-    AppRouter,
-};
+export { AppRouter };

@@ -1,5 +1,5 @@
-import { getLoginIsLoading } from 'features/AuthByUsername/model/selectors/getLoginIsLoading/getLoginIsLoading';
 import { StateSchema } from 'app/providers/StoreProvider';
+import { getLoginIsLoading } from 'features/AuthByUsername/model/selectors/getLoginIsLoading/getLoginIsLoading';
 
 describe('getLoginIsLoading', () => {
     test('Should return true', () => {

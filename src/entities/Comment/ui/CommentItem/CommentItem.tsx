@@ -1,11 +1,14 @@
 import { memo } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { Text } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
-import cls from './CommentItem.module.scss';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
+import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
+import { Text } from 'shared/ui/Text/Text';
+
 import { Comment } from '../../model/types/comment';
+
+import cls from './CommentItem.module.scss';
 
 interface CommentItemProps {
     className?: string;
@@ -31,14 +34,14 @@ export const CommentItem = memo((props: CommentItemProps) => {
 
     return (
         <div className={classNames(cls.CommentItem, {}, [className])}>
-            <div className={cls.header}>
+            <AppLink to={`/profile/${comment.user?.id}`} className={cls.header}>
                 <Avatar
                     alt={t('Аватар')}
                     src={comment.user?.avatar}
                     size={30}
                 />
                 <Text title={comment.user?.username} />
-            </div>
+            </AppLink>
             <Text text={comment.text} />
         </div>
     );

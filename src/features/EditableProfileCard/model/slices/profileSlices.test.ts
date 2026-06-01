@@ -1,4 +1,5 @@
 import { profileActions, profileReducer } from 'features/EditableProfileCard';
+
 import { ProfileSchema } from '../types/EditableProfileCard';
 
 describe('profileSlices', () => {

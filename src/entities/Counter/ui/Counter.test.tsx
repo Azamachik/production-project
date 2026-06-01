@@ -1,10 +1,13 @@
-import { ComponentRender } from 'shared/lib/tests/componentRender/ComponentRender';
 import { fireEvent, screen } from '@testing-library/react';
+import { ComponentRender } from 'shared/lib/tests/componentRender/ComponentRender';
+
 import { Counter } from './Counter';
 
 describe('Counter', () => {
     beforeEach(() => {
-        ComponentRender(<Counter />, { initialState: { counter: { value: 7 } } });
+        ComponentRender(<Counter />, {
+            initialState: { counter: { value: 7 } },
+        });
     });
     test('Renders correctly', () => {
         expect(screen.getByTestId('counter-value')).toHaveTextContent('7');

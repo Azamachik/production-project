@@ -13,5 +13,5 @@ export interface ProfileSchema {
     data?: Profile;
     formData?: Profile;
     error?: string;
-    validateErrors?: ValidateProfileError[]
+    validateErrors?: ValidateProfileError[];
 }
