@@ -1,11 +1,9 @@
-import { Theme } from 'app/providers/ThemeProvider';
 import {
     Article,
     ArticleBlockType,
     ArticleType,
 } from 'entities/Article/model/types/article';
 import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
-import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 
 import type { Meta, StoryObj } from '@storybook/react';
 import ArticleDetailsPage from './ArticleDetailsPage';
@@ -27,6 +25,10 @@ const article: Article = {
     createdAt: '26.02.2022',
     updatedAt: '26.02.2022',
     type: [ArticleType.IT],
+    user: {
+        id: '1',
+        username: 'user',
+    },
     blocks: [
         {
             id: '1',

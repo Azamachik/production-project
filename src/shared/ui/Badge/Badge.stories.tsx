@@ -12,8 +12,15 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {};
+export const Primary: Story = {
+    args: {
+        text: 'Badge',
+    },
+};
 
 export const PrimaryDark: Story = {
+    args: {
+        text: 'Badge',
+    },
     decorators: [ThemeDecorator(Theme.DARK)],
 };

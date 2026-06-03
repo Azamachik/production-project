@@ -7,7 +7,12 @@ module.exports = {
         jest: true,
     },
 
-    extends: ['plugin:react/recommended', 'airbnb', 'plugin:i18next/recommended', 'prettier'],
+    extends: [
+        'plugin:react/recommended',
+        'airbnb',
+        'plugin:i18next/recommended',
+        'prettier',
+    ],
 
     parser: '@typescript-eslint/parser',
 
@@ -24,7 +29,10 @@ module.exports = {
     plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks'],
 
     rules: {
-        'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx'] }],
+        'react/jsx-filename-extension': [
+            2,
+            { extensions: ['.js', '.jsx', '.tsx'] },
+        ],
 
         'import/no-unresolved': 'off',
 
@@ -67,6 +75,8 @@ module.exports = {
         'react/jsx-max-props-per-line': ['error', { maximum: { single: 4 } }],
 
         'react/no-unstable-nested-components': 'warn',
+
+        'react/no-array-index-key': 'off',
     },
 
     globals: {

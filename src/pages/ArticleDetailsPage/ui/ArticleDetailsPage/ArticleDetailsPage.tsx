@@ -8,15 +8,21 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { RoutePath } from 'shared/config/rootConfig/rootConfig';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { ReducersList, useDynamicModuleLoad } from 'shared/lib/hooks/useDynamicModuleLoad/useDynamicModuleLoad';
+import {
+    ReducersList,
+    useDynamicModuleLoad,
+} from 'shared/lib/hooks/useDynamicModuleLoad/useDynamicModuleLoad';
 import { Button } from 'shared/ui/Button/Button';
 import { Text } from 'shared/ui/Text/Text';
 
-import { Page } from 'shared/ui/Page/Page';
+import { Page } from 'widgets/Page';
 import { getArticleDetailsCommentsIsLoading } from '../../model/selectors/getArticleDetailsComments';
 import { addArticlesComment } from '../../model/services/addArticlesComment/addArticlesComment';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
-import { articleDetailsCommentsReducer, getArticleComments } from '../../model/slices/articleDetailsCommentsSlice';
+import {
+    articleDetailsCommentsReducer,
+    getArticleComments,
+} from '../../model/slices/articleDetailsCommentsSlice';
 
 import cls from './ArticleDetailsPage.module.scss';
 
@@ -66,7 +72,10 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
             <ArticleDetails id={id} />
             {!isLoading && (
                 <>
-                    <Text title={t('Комментарии')} className={cls.commentTitle} />
+                    <Text
+                        title={t('Комментарии')}
+                        className={cls.commentTitle}
+                    />
                     <AddCommentForm onSend={onSend} />
                 </>
             )}

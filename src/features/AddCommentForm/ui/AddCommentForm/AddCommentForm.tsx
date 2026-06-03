@@ -32,6 +32,7 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
     const dispatch = useAppDispatch();
     const text = useSelector(getArticlesCommentFormText);
     const [isCommentFormOpen, setIsCommentFormOpen] = useState(false);
+
     useDynamicModuleLoad(reducers, true);
 
     const onChange = useCallback(

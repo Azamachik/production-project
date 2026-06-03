@@ -28,6 +28,10 @@ const article: Article = {
     createdAt: '26.02.2022',
     updatedAt: '26.02.2022',
     type: [ArticleType.IT],
+    user: {
+        id: '1',
+        username: 'user',
+    },
     blocks: [
         {
             id: '1',
