@@ -1,21 +1,31 @@
-import { ReactNode } from 'react';
+import { HTMLAttributes, ReactNode } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 
 import cls from './Card.module.scss';
 
-interface CardProps {
+export enum CardVariants {
+    PRIMARY = 'primary',
+    OUTLINED = 'outlined',
+}
+
+interface CardProps extends HTMLAttributes<HTMLDivElement> {
     className?: string;
     children: ReactNode;
-    onClick?: () => void;
+    variant?: CardVariants;
 }
 
 export const Card = (props: CardProps) => {
-    const { className, children, onClick } = props;
+    const {
+        className,
+        children,
+        variant = CardVariants.PRIMARY,
+        ...otherProps
+    } = props;
 
     return (
         <div
-            className={classNames(cls.Card, {}, [className])}
-            onClick={onClick}
+            className={classNames(cls.Card, {}, [className, cls[variant]])}
+            {...otherProps}
         >
             {children}
         </div>

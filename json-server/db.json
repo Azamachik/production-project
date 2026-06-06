@@ -536,7 +536,7 @@
             "views": 6789,
             "createdAt": "28.02.2024",
             "userId": "2",
-            "type": ["SCIENCE", "IT"],
+            "type": ["SCIENCE"],
             "blocks": [
                 {
                     "id": "1",

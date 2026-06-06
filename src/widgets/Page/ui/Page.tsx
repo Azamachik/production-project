@@ -44,7 +44,6 @@ export const Page = (props: PageProps) => {
                 position: event.currentTarget.scrollTop,
             }),
         );
-        console.log('scroll');
     }, 800);
 
     return (
@@ -54,7 +53,7 @@ export const Page = (props: PageProps) => {
             onScroll={onScroll}
         >
             {children}
-            <div ref={triggerRef} />
+            {onScrollEnd && <div className={cls.triggerRef} ref={triggerRef} />}
         </section>
     );
 };

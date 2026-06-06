@@ -1,9 +1,10 @@
 import { User } from 'entities/User';
 
 export enum ArticleType {
+    ALL = 'ALL',
     IT = 'IT',
     SCIENCE = 'SCIENCE',
-    MATH = 'MATH',
+    ECONOMICS = 'ECONOMICS',
 }
 
 export enum ArticleBlockType {
@@ -69,4 +70,10 @@ export interface ArticleDetailsSchema {
 export enum ArticleView {
     GRID = 'GRID',
     LIST = 'LIST',
+}
+
+export enum ArticleSortField {
+    VIEWS = 'views',
+    TITLE = 'title',
+    DATE = 'date',
 }

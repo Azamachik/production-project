@@ -1,5 +1,9 @@
 import { StateSchema } from 'app/providers/StoreProvider';
 import { ArticleView } from 'entities/Article';
+import {
+    ArticleSortField,
+    ArticleType,
+} from 'entities/Article/model/types/article';
 
 export const getArticlesIsLoading = (state: StateSchema) =>
     state.articles?.isLoading || false;
@@ -14,3 +18,11 @@ export const getArticlesHasMore = (state: StateSchema) =>
     state.articles?.hasMore;
 export const getArticlesInited = (state: StateSchema) =>
     state.articles?._inited;
+export const getArticlesSort = (state: StateSchema) =>
+    state.articles?.sort ?? ArticleSortField.DATE;
+export const getArticlesOrder = (state: StateSchema) =>
+    state.articles?.order ?? 'asc';
+export const getArticlesSearch = (state: StateSchema) =>
+    state.articles?.search ?? '';
+export const getArticlesType = (state: StateSchema) =>
+    state.articles?.type ?? ArticleType.ALL;

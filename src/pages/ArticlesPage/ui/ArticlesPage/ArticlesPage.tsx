@@ -11,13 +11,13 @@ import {
 
 import { Page } from 'widgets/Page';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { initArticles } from 'pages/ArticlesPage/model/services/initArticles/initArticles';
+import { useSearchParams } from 'react-router-dom';
 import {
     getArticlesError,
-    getArticlesInited,
     getArticlesIsLoading,
     getArticlesView,
 } from '../../model/selectors/getArticles';
-import { fetchArticles } from '../../model/services/fetchArticles/fetchArticles';
 import {
     articlesActions,
     articlesReducer,
@@ -26,6 +26,7 @@ import {
 
 import cls from './ArticlesPage.module.scss';
 import { fetchNextArticles } from '../../model/services/fetchNextArticles/fetchNextArticles';
+import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
 
 interface ArticlesPageProps {
     className?: string;
@@ -42,15 +43,12 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     const isLoading = useSelector(getArticlesIsLoading);
     const view = useSelector(getArticlesView);
     const error = useSelector(getArticlesError);
-    const inited = useSelector(getArticlesInited);
+    const [searchParams] = useSearchParams();
 
     useDynamicModuleLoad(reducers, false);
 
     useInitialEffect(() => {
-        if (!inited) {
-            dispatch(articlesActions.initState());
-            dispatch(fetchArticles({ page: 1 }));
-        }
+        dispatch(initArticles(searchParams));
     });
 
     const onViewChange = useCallback(
@@ -69,6 +67,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
             className={classNames(cls.ArticlesPage, {}, [className])}
             onScrollEnd={onLoadNextPart}
         >
+            <ArticlesPageFilters />
             <ToggleArticleView view={view} onViewClick={onViewChange} />
             <ArticleList
                 articles={articles}

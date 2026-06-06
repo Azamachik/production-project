@@ -24,3 +24,18 @@
 .content-page {
     display: flex;
 }
+
+*::-webkit-scrollbar {
+    width: 12px; /* Ширина всего элемента навигации */
+    height: 12px; /* Высота всего элемента навигации */
+}
+
+*::-webkit-scrollbar-track {
+    background: var(--card-bg); /* Цвет дорожки */
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color); /* Цвет бегунка */
+    border-radius: 16px; /* Округление бегунка */
+    border: 3px solid var(--card-bg); /* Оформление границ бегунка */
+}

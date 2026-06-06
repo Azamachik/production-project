@@ -46,6 +46,13 @@
     transition: 0.2s;
     cursor: pointer;
 
+    .date {
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: none;
+    }
+
     &:hover {
         .date {
             display: block;
@@ -57,13 +64,6 @@
         flex-wrap: wrap;
         gap: 8px;
         margin: 8px 0;
-    }
-
-    .date {
-        position: absolute;
-        top: 0;
-        right: 0;
-        display: none;
     }
 
     .imageWrapper {
