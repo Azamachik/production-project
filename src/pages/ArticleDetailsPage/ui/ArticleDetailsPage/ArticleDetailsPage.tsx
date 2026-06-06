@@ -5,7 +5,7 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
-import { RoutePath } from 'shared/config/rootConfig/rootConfig';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
@@ -27,6 +27,7 @@ import { getArticleDetailsPageCommentsIsLoading } from '../../model/selectors/ge
 import { getArticleDetailsPageRecommendationsIsLoading } from '../../model/selectors/getRecommendations';
 import { getArticleRecommendationsList } from '../../model/slices/articleDetailsRecommendationList';
 import { fetchArticlesRecommendationList } from '../../model/services/fetchArticlesRecommendationList/fetchArticlesRecommendationList';
+import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 
 interface ArticleDetailsPageProps {
     className?: string;
@@ -59,10 +60,6 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
         [dispatch],
     );
 
-    const onBack = useCallback(() => {
-        navigate(RoutePath.articles);
-    }, []);
-
     useInitialEffect(() => {
         dispatch(fetchCommentsByArticleId(id));
         dispatch(fetchArticlesRecommendationList());
@@ -74,7 +71,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
 
     return (
         <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-            <Button onClick={onBack}>{t('Назад к статьям')}</Button>
+            <ArticleDetailsPageHeader />
             <ArticleDetails id={id} />
             <Text className={cls.commentTitle} title={t('Рекомендуем')} />
             <ArticleList

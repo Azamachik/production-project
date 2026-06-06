@@ -4,7 +4,7 @@ import Article from 'shared/assets/icons/article.svg';
 import Avatar from 'shared/assets/icons/avatar.svg';
 import Home from 'shared/assets/icons/home.svg';
 import Info from 'shared/assets/icons/info.svg';
-import { RoutePath } from 'shared/config/rootConfig/rootConfig';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 
 import { SidebarItemType } from '../types/sidebar';
 
