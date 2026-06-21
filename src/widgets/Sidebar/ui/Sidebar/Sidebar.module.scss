@@ -1,6 +1,5 @@
 .Sidebar {
     position: relative;
-    display: flex;
     flex-shrink: 0;
     width: var(--sidebar-width);
     height: var(--sidebar-height);
@@ -13,15 +12,9 @@
 .switchers {
     position: absolute;
     bottom: 24px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
 }
 
 .items {
-    display: flex;
-    flex-direction: column;
     margin-top: 24px;
     margin-left: 8px;
     transition: left 0.3s ease;

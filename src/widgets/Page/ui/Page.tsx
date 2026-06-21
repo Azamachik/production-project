@@ -1,4 +1,12 @@
-import { MutableRefObject, ReactNode, useRef, UIEvent } from 'react';
+import {
+    ForwardedRef,
+    forwardRef,
+    MutableRefObject,
+    ReactNode,
+    UIEvent,
+    useImperativeHandle,
+    useRef,
+} from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 
 import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
@@ -17,43 +25,51 @@ interface PageProps {
     onScrollEnd?: () => void;
 }
 
-export const Page = (props: PageProps) => {
-    const { className, children, onScrollEnd } = props;
-    const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
-    const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
-    const dispatch = useAppDispatch();
-    const { pathname } = useLocation();
-    const scrollPosition = useSelector((state: StateSchema) =>
-        getScrollByPath(state, pathname),
-    );
+export const Page = forwardRef(
+    (props: PageProps, ref: ForwardedRef<HTMLElement>) => {
+        const { className, children, onScrollEnd } = props;
+        const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
+        const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
+        const dispatch = useAppDispatch();
 
-    useInfiniteScroll({
-        triggerRef,
-        wrapperRef,
-        callback: onScrollEnd,
-    });
+        // отдаём DOM-элемент скролл-контейнера наружу (для customScrollParent у Virtuoso)
+        useImperativeHandle(ref, () => wrapperRef.current, []);
 
-    useInitialEffect(() => {
-        wrapperRef.current.scrollTop = scrollPosition;
-    });
-
-    const onScroll = useThrottle((event: UIEvent<HTMLDivElement>) => {
-        dispatch(
-            scrollActions.setScrollPosition({
-                path: pathname,
-                position: event.currentTarget.scrollTop,
-            }),
+        const { pathname } = useLocation();
+        const scrollPosition = useSelector((state: StateSchema) =>
+            getScrollByPath(state, pathname),
         );
-    }, 800);
 
-    return (
-        <section
-            ref={wrapperRef}
-            className={classNames(cls.Page, {}, [className])}
-            onScroll={onScroll}
-        >
-            {children}
-            {onScrollEnd && <div className={cls.triggerRef} ref={triggerRef} />}
-        </section>
-    );
-};
+        useInfiniteScroll({
+            triggerRef,
+            wrapperRef,
+            callback: onScrollEnd,
+        });
+
+        useInitialEffect(() => {
+            wrapperRef.current.scrollTop = scrollPosition;
+        });
+
+        const onScroll = useThrottle((event: UIEvent<HTMLDivElement>) => {
+            dispatch(
+                scrollActions.setScrollPosition({
+                    path: pathname,
+                    position: event.currentTarget.scrollTop,
+                }),
+            );
+        }, 800);
+
+        return (
+            <main
+                ref={wrapperRef}
+                className={classNames(cls.Page, {}, [className])}
+                onScroll={onScroll}
+            >
+                {children}
+                {onScrollEnd && (
+                    <div className={cls.triggerRef} ref={triggerRef} />
+                )}
+            </main>
+        );
+    },
+);

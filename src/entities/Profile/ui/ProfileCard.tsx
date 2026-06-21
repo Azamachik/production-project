@@ -25,8 +25,8 @@ interface ProfileCardProps {
     onAgeChange?: (value: string) => void;
     onCityChange?: (value: string) => void;
     onAvatarChange?: (value: string) => void;
-    onCurrencyChange?: (value?: Currency) => void;
-    onCountryChange?: (value?: Country) => void;
+    onCurrencyChange: (value?: Currency) => void;
+    onCountryChange: (value?: Country) => void;
     onDescriptionChange?: (value: string) => void;
 }
 

@@ -1,6 +1,7 @@
-import { HTMLAttributeAnchorTarget, memo } from 'react';
+import { FC, HTMLAttributeAnchorTarget, memo, useCallback } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 
+import { Virtuoso, VirtuosoGrid } from 'react-virtuoso';
 import { Article, ArticleView } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
@@ -13,16 +14,18 @@ interface ArticleListProps {
     view?: ArticleView;
     isLoading?: boolean;
     target?: HTMLAttributeAnchorTarget;
+    onLoadNextPart?: () => void;
+    customScrollParent?: HTMLElement;
 }
 
 const getSkeletons = (view: ArticleView) =>
-    new Array(view === ArticleView.GRID ? 12 : 2)
+    new Array(3)
         .fill(0)
         .map((item, index) => (
             <ArticleListItemSkeleton
                 className={cls.card}
                 key={index}
-                view={view}
+                view={ArticleView.LIST}
             />
         ));
 
@@ -33,9 +36,11 @@ export const ArticleList = memo((props: ArticleListProps) => {
         view = ArticleView.GRID,
         isLoading,
         target,
+        onLoadNextPart,
+        customScrollParent,
     } = props;
 
-    const renderArticle = (article: Article) => (
+    const renderArticle = (index: number, article: Article) => (
         <ArticleListItem
             className={cls.card}
             article={article}
@@ -45,13 +50,63 @@ export const ArticleList = memo((props: ArticleListProps) => {
         />
     );
 
+    const Footer = useCallback(() => {
+        if (isLoading) {
+            return <div className={cls.skeletons}>{getSkeletons(view)}</div>;
+        }
+        return null;
+    }, [isLoading, view]);
+
+    const ItemContainer: FC<{
+        height: number;
+        width: number;
+        index: number;
+    }> = useCallback(
+        ({ children, height, width, index }) => (
+            <div className={cls.ItemContainer}>
+                <ArticleListItemSkeleton
+                    className={cls.card}
+                    view={view}
+                    key={index}
+                />
+            </div>
+        ),
+        [],
+    );
+
+    if (view === ArticleView.LIST) {
+        return (
+            <Virtuoso
+                data={articles}
+                itemContent={renderArticle}
+                endReached={onLoadNextPart}
+                className={classNames(cls.ArticleList, {}, [
+                    className,
+                    cls[view],
+                ])}
+                customScrollParent={customScrollParent}
+                components={{
+                    Footer,
+                }}
+            />
+        );
+    }
+
     return (
-        <div
-            className={classNames(cls.ArticleList, {}, [className, cls[view]])}
-        >
-            {articles.map(renderArticle)}
-            {isLoading && getSkeletons(view)}
-        </div>
+        <VirtuosoGrid
+            data={articles}
+            itemContent={renderArticle}
+            endReached={onLoadNextPart}
+            customScrollParent={customScrollParent}
+            listClassName={cls.itemsWrapper}
+            components={{
+                ScrollSeekPlaceholder: ItemContainer,
+            }}
+            scrollSeekConfiguration={{
+                enter: (velocity) => Math.abs(velocity) > 50,
+                exit: (velocity) => Math.abs(velocity) < 10,
+            }}
+        />
     );
 });
 

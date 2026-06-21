@@ -5,6 +5,8 @@ import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
 
+import { VStack } from 'shared/ui/Stack/VStack/VStack';
+import { HStack } from 'shared/ui/Stack/HStack/HStack';
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 
@@ -23,15 +25,34 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
     }, []);
 
     const itemsList = useMemo(
-        () => sidebarItemsList.map((item) => <SidebarItem key={item.path} item={item} collapsed={collapsed} />),
+        () =>
+            sidebarItemsList.map((item) => (
+                <SidebarItem
+                    key={item.path}
+                    item={item}
+                    collapsed={collapsed}
+                />
+            )),
         [collapsed, sidebarItemsList],
     );
 
     return (
-        <aside data-testid='sidebar' className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
-            <nav className={cls.items}>{itemsList}</nav>
+        <section
+            data-testid="sidebar"
+            className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [
+                className,
+            ])}
+        >
+            <VStack
+                role="navigation"
+                gap="32"
+                justify="center"
+                className={cls.items}
+            >
+                {itemsList}
+            </VStack>
             <Button
-                data-testid='sidebar-toggle'
+                data-testid="sidebar-toggle"
                 variant={ButtonTheme.CLEAR}
                 onClick={toggle}
                 className={cls.collapsedButton}
@@ -40,11 +61,16 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
             >
                 {collapsed ? '>' : '<'}
             </Button>
-            <div className={cls.switchers}>
+            <HStack
+                justify="center"
+                align="center"
+                max
+                className={cls.switchers}
+            >
                 <ThemeSwitcher />
                 <LangSwitcher short={collapsed} />
-            </div>
-        </aside>
+            </HStack>
+        </section>
     );
 });
 

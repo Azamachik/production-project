@@ -74,12 +74,14 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
             <ArticleDetailsPageHeader />
             <ArticleDetails id={id} />
             <Text className={cls.commentTitle} title={t('Рекомендуем')} />
+            {/* <div className={cls.recommendationsWrapper}> */}
             <ArticleList
                 articles={recommendations}
                 isLoading={recommendationsIsLoading}
                 className={cls.recommendations}
                 target="_blank"
             />
+            {/* </div> */}
             {!isLoading && (
                 <>
                     <Text

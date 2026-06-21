@@ -7,6 +7,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 
+import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -31,22 +34,41 @@ export const Navbar = memo(({ className }: NavbarProps) => {
         dispatch(userActions.logout());
     }, [dispatch]);
 
+    const items = [
+        {
+            value: t('Профиль'),
+            href: `${RoutePath.profile}${authData?.id}`,
+        },
+        {
+            value: t('Выйти'),
+            onClick: onLogout,
+        },
+    ];
+
     if (authData) {
         return (
             <header className={classNames(cls.Navbar, {}, [className])}>
-                <Button className={cls.links} variant={ButtonTheme.CLEAR} onClick={onLogout}>
-                    {t('Выйти')}
-                </Button>
+                <Dropdown
+                    className={cls.links}
+                    items={items}
+                    trigger={<Avatar src={authData.avatar} size={30} />}
+                />
             </header>
         );
     }
 
     return (
         <header className={classNames(cls.Navbar, {}, [className])}>
-            <Button className={cls.links} variant={ButtonTheme.CLEAR} onClick={handleOpen}>
+            <Button
+                className={cls.links}
+                variant={ButtonTheme.CLEAR}
+                onClick={handleOpen}
+            >
                 {t('Войти')}
             </Button>
-            {isAuthModalOpen && <LoginModal isOpen={isAuthModalOpen} onClose={handleClose} />}
+            {isAuthModalOpen && (
+                <LoginModal isOpen={isAuthModalOpen} onClose={handleClose} />
+            )}
         </header>
     );
 });

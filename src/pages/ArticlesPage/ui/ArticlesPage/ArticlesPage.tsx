@@ -1,6 +1,6 @@
 import { ArticleList, ArticleView } from 'entities/Article';
 import { ToggleArticleView } from 'features/ArticleView';
-import { memo, useCallback, useEffect } from 'react';
+import { memo, useCallback, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -8,10 +8,9 @@ import {
     ReducersList,
     useDynamicModuleLoad,
 } from 'shared/lib/hooks/useDynamicModuleLoad/useDynamicModuleLoad';
-
 import { Page } from 'widgets/Page';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { initArticles } from 'pages/ArticlesPage/model/services/initArticles/initArticles';
+import { initArticles } from '../../model/services/initArticles/initArticles';
 import { useSearchParams } from 'react-router-dom';
 import {
     getArticlesError,
@@ -23,7 +22,6 @@ import {
     articlesReducer,
     getArticles,
 } from '../../model/slices/articlesSlice';
-
 import cls from './ArticlesPage.module.scss';
 import { fetchNextArticles } from '../../model/services/fetchNextArticles/fetchNextArticles';
 import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
@@ -44,6 +42,8 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     const view = useSelector(getArticlesView);
     const error = useSelector(getArticlesError);
     const [searchParams] = useSearchParams();
+    // DOM-элемент скролл-контейнера Page — отдаём его Virtuoso как customScrollParent
+    const [pageElement, setPageElement] = useState<HTMLElement | null>(null);
 
     useDynamicModuleLoad(reducers, false);
 
@@ -64,15 +64,18 @@ const ArticlesPage = (props: ArticlesPageProps) => {
 
     return (
         <Page
+            ref={setPageElement}
             className={classNames(cls.ArticlesPage, {}, [className])}
-            onScrollEnd={onLoadNextPart}
         >
             <ArticlesPageFilters />
             <ToggleArticleView view={view} onViewClick={onViewChange} />
             <ArticleList
+                className={cls.list}
                 articles={articles}
                 view={view}
                 isLoading={isLoading}
+                onLoadNextPart={onLoadNextPart}
+                customScrollParent={pageElement ?? undefined}
             />
         </Page>
     );

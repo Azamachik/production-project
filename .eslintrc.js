@@ -26,57 +26,42 @@ module.exports = {
         sourceType: 'module',
     },
 
-    plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks'],
+    plugins: [
+        'react',
+        '@typescript-eslint',
+        'i18next',
+        'react-hooks',
+        'feature-sliced-path-checker-stable',
+    ],
 
     rules: {
         'react/jsx-filename-extension': [
             2,
             { extensions: ['.js', '.jsx', '.tsx'] },
         ],
-
         'import/no-unresolved': 'off',
-
         'import/prefer-default-export': 'off',
-
         'no-unused-vars': 'warn',
-
         'unused-imports/no-unused-imports': 'off',
-
         'react/require-default-props': 'off',
-
         'react/react-in-jsx-scope': 'off',
-
         'react/jsx-props-no-spreading': 'warn',
-
         'react/function-component-definition': 'off',
-
         'no-shadow': 'off',
-
         'import/extensions': 'off',
-
         'import/no-extraneous-dependencies': 'off',
-
         'no-underscore-dangle': 'off',
-
         'i18next/no-literal-string': 'off',
-
         'jsx-a11y/no-static-element-interactions': 'off',
-
         'jsx-a11y/click-events-have-key-events': 'off',
-
         'react-hooks/rules-of-hooks': 'off', // Checks rules for hooks
-
         'react-hooks/exhaustive-deps': 'off', // Checks effect dependencies
-
         'no-param-reassign': 'off',
-
         'no-undef': 'off',
-
         'react/jsx-max-props-per-line': ['error', { maximum: { single: 4 } }],
-
         'react/no-unstable-nested-components': 'warn',
-
         'react/no-array-index-key': 'off',
+        'feature-sliced-path-checker-stable/path-checker': 'error',
     },
 
     globals: {

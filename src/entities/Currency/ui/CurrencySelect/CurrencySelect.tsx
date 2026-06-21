@@ -2,13 +2,14 @@ import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Select, SelectOption } from 'shared/ui/Select/Select';
 
+import { Listbox } from 'shared/ui/Listbox/Listbox';
 import { Currency } from '../../model/types/Currency';
 
 interface CurrencySelectProps {
     className?: string;
     value?: Currency;
     readonly?: boolean;
-    onChange?: (value?: Currency) => void;
+    onChange: (value?: Currency) => void;
 }
 
 const options: SelectOption<Currency>[] = [
@@ -22,11 +23,11 @@ export const CurrencySelect = (props: CurrencySelectProps) => {
     const { className, value, readonly, onChange } = props;
 
     return (
-        <Select
+        <Listbox
             className={classNames('', {}, [className])}
             label={t('Валюта')}
             value={value}
-            options={options}
+            items={options}
             readonly={readonly}
             onChange={onChange}
         />

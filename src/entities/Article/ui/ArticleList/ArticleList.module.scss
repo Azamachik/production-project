@@ -1,12 +1,40 @@
 .GRID {
-    display: flex;
-    flex-wrap: wrap;
-
-    gap: 16px;
+    .card {
+        margin: 30px 0;
+    }
 }
 
 .LIST {
     .card {
-        margin-bottom: 16px;
+        margin: 30px 0;
     }
+}
+
+.itemsWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin: 0 30px;
+    // justify-content: space-between;
+}
+
+.ItemContainer {
+    width: 230px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-right: 30px;
+    justify-content: space-between;
+
+    @media (max-width: 1024px) {
+        width: 50%;
+    }
+
+    @media (max-width: 300px) {
+        width: 100%;
+    }
+}
+
+.skeletons {
+    gap: 8px;
 }

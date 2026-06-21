@@ -2,13 +2,14 @@ import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Select, SelectOption } from 'shared/ui/Select/Select';
 
+import { Listbox } from 'shared/ui/Listbox/Listbox';
 import { Country } from '../../model/types/Country';
 
 interface CountrySelectProps {
     className?: string;
     value?: Country;
     readonly?: boolean;
-    onChange?: (value?: Country) => void;
+    onChange: (value?: Country) => void;
 }
 
 const options: SelectOption<Country>[] = [
@@ -23,11 +24,11 @@ export const CountrySelect = (props: CountrySelectProps) => {
     const { className, value, readonly, onChange } = props;
 
     return (
-        <Select
+        <Listbox
             className={classNames('', {}, [className])}
             label={t('Страна')}
             value={value}
-            options={options}
+            items={options}
             readonly={readonly}
             onChange={onChange}
         />
