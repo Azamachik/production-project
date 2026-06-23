@@ -22,7 +22,8 @@
         "storybook": "storybook dev -p 6006 -c ./config/storybook",
         "storybook:build": "storybook build -c ./config/storybook",
         "prettier": "prettier --write ./src",
-        "prepare": "husky && husky install"
+        "prepare": "husky && husky install",
+        "generate:slice": "node ./scripts/createSlice/index.js"
     },
     "keywords": [],
     "author": "",
