@@ -1,8 +1,3 @@
-import { getArticlesCommentFormText } from 'features/AddCommentForm/model/selectors/getArticlesComment';
-import {
-    addCommentFormActions,
-    addCommentFormReducer,
-} from 'features/AddCommentForm/model/slices/addCommentFormSlice';
 import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -12,9 +7,13 @@ import {
     ReducersList,
     useDynamicModuleLoad,
 } from 'shared/lib/hooks/useDynamicModuleLoad/useDynamicModuleLoad';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { Textarea } from 'shared/ui/Textarea/Textarea';
-
+import { Button } from 'shared/ui/Button/Button';
+import CommentForm from 'entities/Comment/ui/CommentForm/CommentForm';
+import {
+    addCommentFormActions,
+    addCommentFormReducer,
+} from '../../model/slices/addCommentFormSlice';
+import { getArticlesCommentFormText } from '../../model/selectors/getArticlesComment';
 import cls from './AddCommentForm.module.scss';
 
 interface AddCommentFormProps {
@@ -63,20 +62,12 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
                     {t('Добавить комментарий')}
                 </Button>
             ) : (
-                <>
-                    <Textarea
-                        className={cls.textarea}
-                        placeholder={t('Начните писать комментарий ...')}
-                        onChange={onChange}
-                        value={text}
-                    />
-                    <div className={cls.buttonWrapper}>
-                        <Button variant={ButtonTheme.DANGER} onClick={onCancel}>
-                            {t('Отменить')}
-                        </Button>
-                        <Button onClick={handleSend}>{t('Отправить')}</Button>
-                    </div>
-                </>
+                <CommentForm
+                    text={text}
+                    onChange={onChange}
+                    onCancel={onCancel}
+                    onSend={handleSend}
+                />
             )}
         </div>
     );

@@ -4,6 +4,7 @@ import {
     ReducersMapObject,
     EnhancedStore,
 } from '@reduxjs/toolkit';
+import { BaseQueryFn } from '@reduxjs/toolkit/dist/query';
 import { AxiosInstance } from 'axios';
 import { ArticleDetailsSchema } from 'entities/Article';
 import { CounterSchema } from 'entities/Counter';
@@ -15,11 +16,13 @@ import { ScrollSaveSchema } from 'features/ScrollSave';
 import { ArticleDetailsPageSchema } from 'pages/ArticleDetailsPage';
 import { ArticlesSchema } from 'pages/ArticlesPage';
 import { CombinedState } from 'redux';
+import { rtkApi } from 'shared/api/rtkApi';
 
 export interface StateSchema {
     counter: CounterSchema;
     user: UserSchema;
     scroll: ScrollSaveSchema;
+    [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
     loginForm?: LoginSchema;
     profile?: ProfileSchema;
     articleDetails?: ArticleDetailsSchema;

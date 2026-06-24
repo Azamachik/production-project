@@ -112,7 +112,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                 <div className={cls.infoWrapper}>
                     <div className={cls.types}>{types}</div>
                 </div>
-                <Text title={article.title} className={cls.title} />
+                <Text text={article.title} className={cls.title} />
             </Card>
         </AppLink>
     );

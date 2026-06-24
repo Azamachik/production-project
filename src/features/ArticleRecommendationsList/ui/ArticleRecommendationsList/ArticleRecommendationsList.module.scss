@@ -1,16 +1,7 @@
-.commentTitle {
-    margin-top: 20px;
-}
-
 .recommendations {
     display: flex;
     flex-wrap: nowrap;
     gap: 16px;
     overflow-x: auto;
     overflow-y: hidden;
-}
-
-.recommendationsWrapper {
-    display: flex;
-    flex-wrap: nowrap;
 }

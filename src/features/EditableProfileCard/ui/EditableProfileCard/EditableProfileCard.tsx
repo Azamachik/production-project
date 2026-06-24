@@ -4,7 +4,6 @@ import { ProfileCard } from 'entities/Profile';
 import { useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
@@ -30,6 +29,7 @@ import cls from './EditableProfileCard.module.scss';
 
 interface EditableProfileCardProps {
     className?: string;
+    id?: string;
 }
 
 const initialReducers: ReducersList = {
@@ -38,6 +38,7 @@ const initialReducers: ReducersList = {
 
 export const EditableProfileCard = ({
     className,
+    id,
 }: EditableProfileCardProps) => {
     const { t } = useTranslation('profile');
     const formData = useSelector(getProfileFormData);
@@ -46,7 +47,10 @@ export const EditableProfileCard = ({
     const isLoading = useSelector(getProfileIsLoading);
     const validateErrors = useSelector(getProfileValidateErrors);
     const dispatch = useAppDispatch();
-    const { id } = useParams<{ id: string }>();
+
+    if (!id) {
+        return <Text text={t('Ошибка при загрузке профиля!')} />;
+    }
 
     const validateErrorTranslates = {
         [ValidateProfileError.SERVER_ERROR]: t(

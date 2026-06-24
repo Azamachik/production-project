@@ -6,6 +6,7 @@ import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { Text } from 'shared/ui/Text/Text';
 
+import { VStack } from 'shared/ui/Stack/VStack/VStack';
 import { Comment } from '../../model/types/comment';
 
 import cls from './CommentItem.module.scss';
@@ -33,7 +34,7 @@ export const CommentItem = memo((props: CommentItemProps) => {
     }
 
     return (
-        <div className={classNames(cls.CommentItem, {}, [className])}>
+        <VStack className={classNames(cls.CommentItem, {}, [className])}>
             <AppLink to={`/profile/${comment.user?.id}`} className={cls.header}>
                 <Avatar
                     alt={t('Аватар')}
@@ -43,7 +44,7 @@ export const CommentItem = memo((props: CommentItemProps) => {
                 <Text title={comment.user?.username} />
             </AppLink>
             <Text text={comment.text} />
-        </div>
+        </VStack>
     );
 });
 
