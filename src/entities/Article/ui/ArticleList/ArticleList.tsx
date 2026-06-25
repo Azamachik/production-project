@@ -16,6 +16,7 @@ interface ArticleListProps {
     target?: HTMLAttributeAnchorTarget;
     onLoadNextPart?: () => void;
     customScrollParent?: HTMLElement;
+    virtualized?: boolean;
 }
 
 const getSkeletons = (view: ArticleView) =>
@@ -38,16 +39,20 @@ export const ArticleList = memo((props: ArticleListProps) => {
         target,
         onLoadNextPart,
         customScrollParent,
+        virtualized = false,
     } = props;
 
-    const renderArticle = (index: number, article: Article) => (
-        <ArticleListItem
-            className={cls.card}
-            article={article}
-            view={view}
-            key={article.id}
-            target={target}
-        />
+    const renderArticle = useCallback(
+        (index: number = 0, article: Article) => (
+            <ArticleListItem
+                className={cls.card}
+                article={article}
+                view={view}
+                key={article.id}
+                target={target}
+            />
+        ),
+        [view, target],
     );
 
     const Footer = useCallback(() => {
@@ -73,6 +78,15 @@ export const ArticleList = memo((props: ArticleListProps) => {
         ),
         [],
     );
+
+    if (!virtualized) {
+        return (
+            <div className={classNames(cls.itemsWrapper, {}, [className])}>
+                {articles?.map((article) => renderArticle(0, article))}
+                {isLoading && getSkeletons(view)}
+            </div>
+        );
+    }
 
     if (view === ArticleView.LIST) {
         return (
