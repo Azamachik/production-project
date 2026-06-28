@@ -14,7 +14,7 @@ interface CommentFormProps {
     text: string;
 }
 
-const CommentForm = memo((props: CommentFormProps) => {
+export const CommentForm = memo((props: CommentFormProps) => {
     const { className, onSend, onCancel, onChange, text } = props;
     const { t } = useTranslation('article-details');
 
@@ -41,5 +41,3 @@ const CommentForm = memo((props: CommentFormProps) => {
 });
 
 CommentForm.displayName = 'CommentForm';
-
-export default CommentForm;

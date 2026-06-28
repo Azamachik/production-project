@@ -22,10 +22,10 @@ import {
     profileActions,
     profileReducer,
 } from '../../model/slices/profileSlices';
-import { ValidateProfileError } from '../../model/types/EditableProfileCard';
 import { EditableProfileCardControlPanel } from '../EditableProfileCardControlPanel/EditableProfileCardControlPanel';
 
 import cls from './EditableProfileCard.module.scss';
+import { ValidateProfileError } from '../../model/consts/consts';
 
 interface EditableProfileCardProps {
     className?: string;
@@ -186,6 +186,7 @@ export const EditableProfileCard = ({
                         key={error}
                         title={validateErrorTranslates[error]}
                         variant={TextTheme.DANGER}
+                        data-testid="EditableProfileCard.Error"
                     />
                 ))}
             <ProfileCard

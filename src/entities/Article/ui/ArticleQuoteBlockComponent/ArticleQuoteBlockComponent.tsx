@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Text } from 'shared/ui/Text/Text';
 
-import { ArticleQuoteBlock } from '../../model/types/article';
+import type { ArticleQuoteBlock } from '../../model/types/article';
 
 import cls from './ArticleQuoteBlockComponent.module.scss';
 

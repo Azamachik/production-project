@@ -4,7 +4,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { Text } from 'shared/ui/Text/Text';
 
 import { VStack } from 'shared/ui/Stack/VStack/VStack';
-import { Comment } from '../../model/types/comment';
+import type { Comment } from '../../model/types/comment';
 import { CommentItem } from '../CommentItem/CommentItem';
 
 import cls from './CommentList.module.scss';

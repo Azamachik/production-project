@@ -7,3 +7,4 @@ package-lock.json
 .loki/report.html
 .loki/report.json
 .agents/
+reports/

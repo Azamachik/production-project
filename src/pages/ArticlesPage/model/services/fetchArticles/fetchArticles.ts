@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
 import { Article } from 'entities/Article';
 import { addQueryParams } from 'shared/lib/url/addQueryParams/addQueryParams';
-import { ArticleType } from 'entities/Article/model/types/article';
+import { ArticleType } from 'entities/Article/model/consts/consts';
 import {
     getArticlesLimit,
     getArticlesOrder,
@@ -19,7 +19,7 @@ export const fetchArticles = createAsyncThunk<
     Article[],
     FetchArticlesProps,
     ThunkConfig<string>
->('articlesPage/fetchArticles', async (args, thunkAPI) => {
+>('articlesPage/fetchArticles', async (_, thunkAPI) => {
     const { extra, rejectWithValue, getState } = thunkAPI;
     const limit = getArticlesLimit(getState());
     const order = getArticlesOrder(getState());

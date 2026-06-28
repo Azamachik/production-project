@@ -1,7 +1,3 @@
-import {
-    ArticleBlock,
-    ArticleBlockType,
-} from 'entities/Article/model/types/article';
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -16,6 +12,7 @@ import {
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { Text, TextAlign, TextSize } from 'shared/ui/Text/Text';
+import type { ArticleBlock } from '../../model/types/article';
 
 import { getArticleDetailsData } from '../../model/selectors/getArticleDetailsData/getArticleDetailsData';
 import { getArticleDetailsError } from '../../model/selectors/getArticleDetailsError/getArticleDetailsError';
@@ -26,7 +23,7 @@ import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleC
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleQuoteBlockComponent } from '../ArticleQuoteBlockComponent/ArticleQuoteBlockComponent';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
-
+import { ArticleBlockType } from '../../model/consts/consts';
 import cls from './ArticleDetails.module.scss';
 
 interface ArticleDetailsProps {

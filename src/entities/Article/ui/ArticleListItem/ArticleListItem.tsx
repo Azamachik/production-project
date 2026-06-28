@@ -11,15 +11,11 @@ import { Card } from 'shared/ui/Card/Card';
 import { Text } from 'shared/ui/Text/Text';
 
 import { AppLink } from 'shared/ui/AppLink/AppLink';
-import {
-    Article,
-    ArticleBlockType,
-    ArticleTextBlock,
-    ArticleView,
-} from '../../model/types/article';
+import type { Article, ArticleTextBlock } from '../../model/types/article';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 
 import cls from './ArticleListItem.module.scss';
+import { ArticleBlockType, ArticleView } from '../../model/consts/consts';
 
 interface ArticleListItemProps {
     className?: string;

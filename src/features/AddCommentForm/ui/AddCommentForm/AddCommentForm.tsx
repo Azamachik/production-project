@@ -8,7 +8,7 @@ import {
     useDynamicModuleLoad,
 } from 'shared/lib/hooks/useDynamicModuleLoad/useDynamicModuleLoad';
 import { Button } from 'shared/ui/Button/Button';
-import CommentForm from 'entities/Comment/ui/CommentForm/CommentForm';
+import { CommentForm } from 'entities/Comment';
 import {
     addCommentFormActions,
     addCommentFormReducer,

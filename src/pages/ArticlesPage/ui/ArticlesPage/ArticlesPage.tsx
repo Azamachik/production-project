@@ -10,8 +10,8 @@ import {
 } from 'shared/lib/hooks/useDynamicModuleLoad/useDynamicModuleLoad';
 import { Page } from 'widgets/Page';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { initArticles } from '../../model/services/initArticles/initArticles';
 import { useSearchParams } from 'react-router-dom';
+import { initArticles } from '../../model/services/initArticles/initArticles';
 import {
     getArticlesError,
     getArticlesIsLoading,
@@ -76,6 +76,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
                 isLoading={isLoading}
                 onLoadNextPart={onLoadNextPart}
                 customScrollParent={pageElement ?? undefined}
+                virtualized
             />
         </Page>
     );

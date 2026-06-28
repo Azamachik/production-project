@@ -7,11 +7,11 @@ import { StateSchema } from 'app/providers/StoreProvider';
 import { Article, ArticleView } from 'entities/Article';
 import { ARTICLE_VIEW_LOCALSTORAGE_KEY } from 'shared/consts/localStorage';
 
+import { SortOrder } from 'shared/lib/types';
 import {
     ArticleSortField,
     ArticleType,
-} from 'entities/Article/model/types/article';
-import { SortOrder } from 'shared/lib/types';
+} from 'entities/Article/model/consts/consts';
 import { fetchArticles } from '../services/fetchArticles/fetchArticles';
 import { ArticlesSchema } from '../types/ArticlesSchema';
 

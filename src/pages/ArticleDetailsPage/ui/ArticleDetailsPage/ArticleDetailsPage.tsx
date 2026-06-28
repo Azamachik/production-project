@@ -12,7 +12,7 @@ import { Page } from 'widgets/Page';
 import { Text } from 'shared/ui/Text/Text';
 import { ArticleRecommendationsList } from 'features/ArticleRecommendationsList';
 import { VStack } from 'shared/ui/Stack/VStack/VStack';
-import { ArticleComments } from 'widgets/ArticleComments/ui/ArticleComments';
+import { ArticleComments } from 'widgets/ArticleComments';
 import { addArticlesComment } from '../../model/services/addArticlesComment/addArticlesComment';
 import { articleDetailsPageReducer } from '../../model/slices';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';

@@ -4,7 +4,7 @@ import { SortOrder } from 'shared/lib/types';
 import {
     ArticleSortField,
     ArticleType,
-} from 'entities/Article/model/types/article';
+} from 'entities/Article/model/consts/consts';
 import { getArticlesInited } from '../../selectors/getArticles';
 import { fetchArticles } from '../fetchArticles/fetchArticles';
 import { articlesActions } from '../../slices/articlesSlice';

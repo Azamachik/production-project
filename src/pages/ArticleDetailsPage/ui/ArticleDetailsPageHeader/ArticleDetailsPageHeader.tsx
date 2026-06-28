@@ -4,8 +4,8 @@ import { Button } from 'shared/ui/Button/Button';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { getCanEditArticle } from 'pages/ArticleDetailsPage/model/selectors/article';
 import { useSelector } from 'react-redux';
+import { getCanEditArticle } from '../../model/selectors/article';
 import cls from './ArticleDetailsPageHeader.module.scss';
 
 interface ArticleDetailsPageHeaderProps {

@@ -41,7 +41,7 @@ module.exports = {
         ],
         'import/no-unresolved': 'off',
         'import/prefer-default-export': 'off',
-        'no-unused-vars': 'warn',
+        'no-unused-vars': 'off',
         'unused-imports/no-unused-imports': 'off',
         'react/require-default-props': 'off',
         'react/react-in-jsx-scope': 'off',
@@ -62,6 +62,7 @@ module.exports = {
         'react/no-unstable-nested-components': 'warn',
         'react/no-array-index-key': 'off',
         'feature-sliced-path-checker-stable/path-checker': 'error',
+        'react/no-unused-prop-types': 'off',
     },
 
     globals: {

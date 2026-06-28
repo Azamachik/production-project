@@ -1,10 +1,8 @@
 export { ArticleDetails } from './ui/ArticleDetails/ArticleDetails';
 
-export {
-    ArticleDetailsSchema,
-    ArticleView,
-    Article,
-} from './model/types/article';
+export type { ArticleDetailsSchema, Article } from './model/types/article';
+
+export { ArticleView } from './model/consts/consts';
 
 export { articleDetailsReducer } from './model/slices/articleDetailsSlice';
 

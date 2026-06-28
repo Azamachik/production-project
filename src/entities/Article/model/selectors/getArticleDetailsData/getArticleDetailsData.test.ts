@@ -1,10 +1,9 @@
 import { StateSchema } from 'app/providers/StoreProvider';
-import { Country } from 'entities/Country';
-import { Currency } from 'entities/Currency';
 
-import { Article, ArticleBlockType, ArticleType } from '../../types/article';
+import type { Article } from '../../types/article';
 
 import { getArticleDetailsData } from './getArticleDetailsData';
+import { ArticleBlockType, ArticleType } from '../../consts/consts';
 
 describe('getArticleDetailsData', () => {
     const data: Article = {

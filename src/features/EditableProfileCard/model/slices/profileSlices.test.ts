@@ -1,6 +1,6 @@
 import { profileActions, profileReducer } from 'features/EditableProfileCard';
 
-import { ProfileSchema } from '../types/EditableProfileCard';
+import { ProfileSchema } from '../types/types';
 
 describe('profileSlices', () => {
     test('Should reverse readonly value', () => {

@@ -9,8 +9,5 @@ export function buildResolvers(options: BuildOptions): webpack.ResolveOptions {
             options.paths.src, 'node_modules',
         ],
         mainFiles: ['index'],
-        alias: {
-            'react/jsx-runtime': 'react/jsx-runtime.js',
-        },
     };
 }

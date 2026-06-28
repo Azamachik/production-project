@@ -1,15 +1,15 @@
 import { getUserAuthData } from 'entities/User';
-import { profileActions } from 'features/EditableProfileCard';
-import { getProfileData } from 'features/EditableProfileCard/model/selectors/getProfileData/getProfileData';
-import { updateProfileData } from 'features/EditableProfileCard/model/services/updateProfileData/updateProfileData';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
+import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
 
 import cls from './EditableProfileCardControlPanel.module.scss';
+import { profileActions } from '../../model/slices/profileSlices';
 
 interface EditableProfileCardControlPanelProps {
     className?: string;
@@ -59,15 +59,28 @@ export const EditableProfileCardControlPanel = (
             ])}
         >
             {readonly ? (
-                <Button className={cls.editBtn} onClick={onEdit}>
+                <Button
+                    className={cls.editBtn}
+                    onClick={onEdit}
+                    data-testid="EditableProfileCardControlPanel.Edit"
+                >
                     {t('Редактировать')}
                 </Button>
             ) : (
                 <>
-                    <Button variant={ButtonTheme.DANGER} onClick={onCancelEdit}>
+                    <Button
+                        variant={ButtonTheme.DANGER}
+                        onClick={onCancelEdit}
+                        data-testid="EditableProfileCardControlPanel.Cancel"
+                    >
                         {t('Отменить')}
                     </Button>
-                    <Button onClick={onSave}>{t('Сохранить')}</Button>
+                    <Button
+                        onClick={onSave}
+                        data-testid="EditableProfileCardControlPanel.Save"
+                    >
+                        {t('Сохранить')}
+                    </Button>
                 </>
             )}
         </div>

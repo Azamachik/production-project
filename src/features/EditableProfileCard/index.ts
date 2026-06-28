@@ -4,4 +4,4 @@ export { fetchProfileData } from './model/services/fetchProfileData/fetchProfile
 
 export { profileReducer, profileActions } from './model/slices/profileSlices';
 
-export { ProfileSchema } from './model/types/EditableProfileCard';
+export type { ProfileSchema } from './model/types/types';

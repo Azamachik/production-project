@@ -9,7 +9,7 @@ import { Loader } from 'shared/ui/Loader/Loader';
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import { Textarea } from 'shared/ui/Textarea/Textarea';
 
-import { Profile } from '../model/types/Profile';
+import type { Profile } from '../model/types/Profile';
 
 import cls from './ProfileCard.module.scss';
 
@@ -117,6 +117,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                         readonly={readonly}
                         onChange={onFirstnameChange}
                         onKeyDown={onNameKeyDown}
+                        data-testid="firstname"
                     />
                     <Input
                         className={cls.input}
@@ -125,6 +126,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                         readonly={readonly}
                         onChange={onLastnameChange}
                         onKeyDown={onNameKeyDown}
+                        data-testid="lastname"
                     />
                     <Input
                         className={cls.input}
@@ -132,6 +134,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                         value={data?.username}
                         readonly={readonly}
                         onChange={onUsernameChange}
+                        data-testid="username"
                     />
                     <Input
                         className={cls.input}
@@ -140,6 +143,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                         readonly={readonly}
                         onChange={onAgeChange}
                         onKeyDown={onAgeKeyDown}
+                        data-testid="age"
                     />
                 </div>
                 <div className={cls.right}>
@@ -149,6 +153,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                         value={data?.avatar}
                         readonly={readonly}
                         onChange={onAvatarChange}
+                        data-testid="avatar-link"
                     />
                     <CountrySelect
                         className={cls.input}

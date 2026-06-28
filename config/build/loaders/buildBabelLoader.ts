@@ -1,12 +1,19 @@
-export function buildBabelLoader(isDev : boolean) {
+import babelRemovePropsPlugin from "../../babel/babelRemovePropsPlugin";
+
+interface BabelLoaderProps {
+    isDev: boolean;
+    isTsx: boolean;
+}
+
+export function buildBabelLoader({isDev, isTsx} : BabelLoaderProps) {
     return {
-        test: /\.(ts|tsx|js|jsx)$/,
+        test: isTsx ? /\.(tsx|jsx)$/ : /\.(ts|js)$/,
         exclude: /node_modules/,
         use: {
             loader: 'babel-loader',
             options: {
                 targets: 'defaults',
-                presets: ['@babel/preset-env', '@babel/preset-react'],
+                presets: ['@babel/preset-env'],
                 plugins: [
                     [
                         'i18next-extract',
@@ -16,6 +23,19 @@ export function buildBabelLoader(isDev : boolean) {
                             saveMissing: true,
                             outputPath: 'public/locales/{{locale}}/{{ns}}.json',
                         },
+                    ],
+                    // [             
+                    //     "@babel/plugin-transform-typescript", 
+                    //     {
+                    //         isTSX: isTsx,
+                    //     }
+                    // ],
+                    "@babel/plugin-transform-runtime",
+                    isTsx && [
+                        babelRemovePropsPlugin,
+                        {
+                            props: ['data-testid']
+                        }
                     ],
                     isDev && require.resolve('react-refresh/babel'),
                 ].filter(Boolean),
