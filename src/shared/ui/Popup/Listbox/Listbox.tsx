@@ -1,20 +1,15 @@
 import { Listbox as HListbox } from '@headlessui/react';
-import { Fragment, ReactNode, useState } from 'react';
+import { Fragment, ReactNode } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Listbox.module.scss';
-import { Button, ButtonTheme } from '../Button/Button';
+import { Button, ButtonTheme } from '../../Button/Button';
+import { DropdownDirection, mapDirectionClasses } from '../common/popupConsts';
 
 interface ListboxItem {
     value: string;
     content: ReactNode;
     disabled?: boolean;
 }
-
-type DropdownDirection =
-    | 'bottom left'
-    | 'bottom right'
-    | 'top right'
-    | 'top left';
 
 interface ListboxProps {
     className?: string;
@@ -26,13 +21,6 @@ interface ListboxProps {
     direction?: DropdownDirection;
 }
 
-const mapDirectionClasses: Record<DropdownDirection, string> = {
-    'bottom left': cls.bottomLeft,
-    'bottom right': cls.bottomRight,
-    'top left': cls.topLeft,
-    'top right': cls.topRight,
-};
-
 export function Listbox(props: ListboxProps) {
     const {
         className,
@@ -41,13 +29,13 @@ export function Listbox(props: ListboxProps) {
         onChange,
         readonly,
         label,
-        direction = 'bottom right',
+        direction = 'bottom left',
     } = props;
 
     const classes = [mapDirectionClasses[direction]];
 
     return (
-        <div className={cls.wrapper}>
+        <div className={classNames(cls.ListBox, {}, [className])}>
             {label && (
                 <span
                     className={classNames(
@@ -57,12 +45,7 @@ export function Listbox(props: ListboxProps) {
                     )}
                 >{`${label}`}</span>
             )}
-            <HListbox
-                as="div"
-                className={classNames(cls.ListBox, {}, [className])}
-                value={value}
-                onChange={onChange}
-            >
+            <HListbox as="div" value={value} onChange={onChange}>
                 <HListbox.Button className={cls.trigger}>
                     <Button disabled={readonly} variant={ButtonTheme.CLEAR}>
                         {value}

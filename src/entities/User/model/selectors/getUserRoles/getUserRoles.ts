@@ -4,12 +4,12 @@ import { Roles } from 'shared/config/routeConfig/routeConfig';
 
 export const getUserRoles = (state: StateSchema) => state.user?.authData?.roles;
 
-export const isAdmin = createSelector(
+export const isUserAdmin = createSelector(
     getUserRoles,
     (roles) => roles?.includes(Roles.ADMIN) ?? false,
 );
 
-export const isManager = createSelector(
+export const isUserManager = createSelector(
     getUserRoles,
     (roles) => roles?.includes(Roles.MANAGER) ?? false,
 );

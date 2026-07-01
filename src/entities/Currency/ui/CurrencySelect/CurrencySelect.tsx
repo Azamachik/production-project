@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { SelectOption } from 'shared/ui/Select/Select';
 
-import { Listbox } from 'shared/ui/Listbox/Listbox';
+import { Listbox } from 'shared/ui/Popup';
 import { Currency } from '../../model/consts/consts';
 
 interface CurrencySelectProps {

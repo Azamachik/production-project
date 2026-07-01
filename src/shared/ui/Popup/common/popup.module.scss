@@ -1,28 +1,14 @@
-.Dropdown {
+.popup {
     position: relative;
 }
 
-.button {
+.trigger {
     background: none;
     border: none;
     padding: 0;
     margin: 0;
     outline: none;
     cursor: pointer;
-}
-
-.items {
-    background: var(--card-bg);
-    position: absolute;
-    z-index: 1000;
-    border-radius: 8px;
-    border: 1px solid var(--primary-color);
-    flex-direction: column;
-    display: flex;
-}
-
-.item {
-    margin: 8px 16px;
 }
 
 .topRight {
