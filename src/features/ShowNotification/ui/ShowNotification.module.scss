@@ -2,5 +2,15 @@
     overflow-y: auto;
     min-height: 100px;
     max-height: 400px;
-    width: 400px;
+    width: 500px;
+}
+
+.ShowNotificationMobile {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    overflow-y: auto;
+    min-height: 100px;
+    max-height: 400px;
+    width: 100%;
 }
