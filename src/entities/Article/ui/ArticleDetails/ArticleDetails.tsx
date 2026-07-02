@@ -1,17 +1,17 @@
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import CalendarIcon from 'shared/assets/icons/calendar.svg';
-import EyeIcon from 'shared/assets/icons/eye.svg';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import CalendarIcon from '@/shared/assets/icons/calendar.svg';
+import EyeIcon from '@/shared/assets/icons/eye.svg';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
     ReducersList,
     useDynamicModuleLoad,
-} from 'shared/lib/hooks/useDynamicModuleLoad/useDynamicModuleLoad';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
-import { Text, TextAlign, TextSize } from 'shared/ui/Text/Text';
+} from '@/shared/lib/hooks/useDynamicModuleLoad/useDynamicModuleLoad';
+import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
+import { Text, TextAlign, TextSize } from '@/shared/ui/Text/Text';
 import type { ArticleBlock } from '../../model/types/article';
 
 import { getArticleDetailsData } from '../../model/selectors/getArticleDetailsData/getArticleDetailsData';

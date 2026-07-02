@@ -1,9 +1,9 @@
-import { useTheme } from 'app/providers/ThemeProvider';
+import { useTheme } from '@/app/providers/ThemeProvider';
 import { memo } from 'react';
-import Moon from 'shared/assets/icons/moon.svg';
-import Sun from 'shared/assets/icons/sun.svg';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import Moon from '@/shared/assets/icons/moon.svg';
+import Sun from '@/shared/assets/icons/sun.svg';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
 
 import cls from './ThemeSwitcher.module.scss';
 

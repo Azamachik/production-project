@@ -1,7 +1,7 @@
-import { StateSchema } from 'app/providers/StoreProvider';
-import { Country } from 'entities/Country';
-import { Currency } from 'entities/Currency';
-import { getProfileFormData } from 'features/EditableProfileCard/model/selectors/getProfileFormData/getProfileFormData';
+import { StateSchema } from '@/app/providers/StoreProvider';
+import { Country } from '@/entities/Country';
+import { Currency } from '@/entities/Currency';
+import { getProfileFormData } from '@/features/EditableProfileCard/model/selectors/getProfileFormData/getProfileFormData';
 
 describe('getProfileFormData', () => {
     const formData = {

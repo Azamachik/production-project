@@ -1,8 +1,8 @@
-import { getUserRoles } from 'entities/User/model/selectors/getUserRoles/getUserRoles';
+import { getUserRoles } from '@/entities/User/model/selectors/getUserRoles/getUserRoles';
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation, Navigate } from 'react-router-dom';
-import { Roles, RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { Roles, RoutePath } from '@/shared/config/routeConfig/routeConfig';
 
 export function RequireRole({
     children,

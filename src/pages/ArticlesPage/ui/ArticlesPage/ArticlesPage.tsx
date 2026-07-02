@@ -1,15 +1,15 @@
-import { ArticleList, ArticleView } from 'entities/Article';
-import { ToggleArticleView } from 'features/ArticleView';
+import { ArticleList, ArticleView } from '@/entities/Article';
+import { ToggleArticleView } from '@/features/ArticleView';
 import { memo, useCallback, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
     ReducersList,
     useDynamicModuleLoad,
-} from 'shared/lib/hooks/useDynamicModuleLoad/useDynamicModuleLoad';
-import { Page } from 'widgets/Page';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+} from '@/shared/lib/hooks/useDynamicModuleLoad/useDynamicModuleLoad';
+import { Page } from '@/widgets/Page';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useSearchParams } from 'react-router-dom';
 import { initArticles } from '../../model/services/initArticles/initArticles';
 import {

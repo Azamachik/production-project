@@ -1,9 +1,9 @@
-import { ArticleView } from 'entities/Article';
+import { ArticleView } from '@/entities/Article';
 import { memo } from 'react';
-import GridIcon from 'shared/assets/icons/grid.svg';
-import ListIcon from 'shared/assets/icons/list.svg';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import GridIcon from '@/shared/assets/icons/grid.svg';
+import ListIcon from '@/shared/assets/icons/list.svg';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
 
 import cls from './ToggleArticleView.module.scss';
 

@@ -1,4 +1,4 @@
-import { profileActions, profileReducer } from 'features/EditableProfileCard';
+import { profileActions, profileReducer } from '@/features/EditableProfileCard';
 
 import { ProfileSchema } from '../types/types';
 

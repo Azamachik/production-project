@@ -1,5 +1,5 @@
-import { Comment } from 'entities/Comment';
-import { rtkApi } from 'shared/api/rtkApi';
+import { Comment } from '@/entities/Comment';
+import { rtkApi } from '@/shared/api/rtkApi';
 
 export const articleComments = rtkApi.injectEndpoints({
     endpoints: (build) => ({

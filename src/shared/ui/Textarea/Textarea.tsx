@@ -1,5 +1,5 @@
 import { ChangeEvent, memo, useRef, TextareaHTMLAttributes } from 'react';
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 
 import cls from './Textarea.module.scss';
 

@@ -63,6 +63,7 @@ module.exports = {
         'react/no-array-index-key': 'off',
         'feature-sliced-path-checker-stable/path-checker': 'error',
         'react/no-unused-prop-types': 'off',
+        'no-unused-expressions': 'off',
     },
 
     globals: {

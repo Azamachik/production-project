@@ -1,8 +1,9 @@
 import { MouseEvent, ReactNode } from 'react';
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
-import { Portal } from 'shared/ui/Portal/Portal';
-import { useModal } from 'shared/lib/hooks/useModal/useModal';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import { Portal } from '@/shared/ui/Portal/Portal';
+import { useModal } from '@/shared/lib/hooks/useModal/useModal';
 import cls from './Modal.module.scss';
+import { Overlay } from '../Overlay/Overlay';
 
 export interface ModalProps {
     children?: ReactNode;
@@ -36,11 +37,12 @@ export const Modal = (props: ModalProps) => {
     return (
         <Portal>
             <div className={classNames(cls.Modal, mods, [className])}>
-                <div className={cls.overlay} onClick={close}>
-                    <div className={cls.content} onClick={onContentClick}>
-                        {children}
-                    </div>
+                <Overlay onClose={close} />
+                {/* <div className={cls.overlay} onClick={close}> */}
+                <div className={cls.content} onClick={onContentClick}>
+                    {children}
                 </div>
+                {/* </div> */}
             </div>
         </Portal>
     );

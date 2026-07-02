@@ -1,14 +1,14 @@
 import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
     ReducersList,
     useDynamicModuleLoad,
-} from 'shared/lib/hooks/useDynamicModuleLoad/useDynamicModuleLoad';
-import { Button } from 'shared/ui/Button/Button';
-import { CommentForm } from 'entities/Comment';
+} from '@/shared/lib/hooks/useDynamicModuleLoad/useDynamicModuleLoad';
+import { Button } from '@/shared/ui/Button/Button';
+import { CommentForm } from '@/entities/Comment';
 import {
     addCommentFormActions,
     addCommentFormReducer,

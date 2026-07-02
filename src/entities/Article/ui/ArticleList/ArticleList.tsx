@@ -1,5 +1,5 @@
 import { HTMLAttributeAnchorTarget, memo, useCallback } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 
 import { Virtuoso, VirtuosoGrid } from 'react-virtuoso';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';

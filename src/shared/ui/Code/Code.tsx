@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 
 import CopyIcon from '../../assets/icons/copy.svg';
 import { Button, ButtonTheme } from '../Button/Button';

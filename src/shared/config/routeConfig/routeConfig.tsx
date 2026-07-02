@@ -1,13 +1,13 @@
-import { AboutPage } from 'pages/AboutPage';
-import { ArticleDetailsPage } from 'pages/ArticleDetailsPage';
-import { ArticlesPage } from 'pages/ArticlesPage';
-import { ArticleEditPage } from 'pages/ArticleEditPage';
-import { MainPage } from 'pages/MainPage';
-import { NotFoundPage } from 'pages/NotFoundPage/ui/NotFoundPage';
-import { ProfilePage } from 'pages/ProfilePage';
+import { AboutPage } from '@/pages/AboutPage';
+import { ArticleDetailsPage } from '@/pages/ArticleDetailsPage';
+import { ArticlesPage } from '@/pages/ArticlesPage';
+import { ArticleEditPage } from '@/pages/ArticleEditPage';
+import { MainPage } from '@/pages/MainPage';
+import { NotFoundPage } from '@/pages/NotFoundPage/ui/NotFoundPage';
+import { ProfilePage } from '@/pages/ProfilePage';
 import { RouteProps } from 'react-router-dom';
-import { ForbiddenPage } from 'pages/ForbiddenPage';
-import { AdminPage } from 'pages/AdminPage';
+import { ForbiddenPage } from '@/pages/ForbiddenPage';
+import { AdminPage } from '@/pages/AdminPage';
 
 export enum Roles {
     ADMIN = 'ADMIN',

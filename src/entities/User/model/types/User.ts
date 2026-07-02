@@ -1,4 +1,4 @@
-import { Roles } from 'shared/config/routeConfig/routeConfig';
+import { Roles } from '@/shared/config/routeConfig/routeConfig';
 
 export interface User {
     id: string;

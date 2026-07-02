@@ -1,16 +1,16 @@
 import { HTMLAttributeAnchorTarget, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import EyeIcon from 'shared/assets/icons/eye.svg';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { Badge } from 'shared/ui/Badge/Badge';
-import { Button } from 'shared/ui/Button/Button';
-import { Card } from 'shared/ui/Card/Card';
-import { Text } from 'shared/ui/Text/Text';
+import EyeIcon from '@/shared/assets/icons/eye.svg';
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import { Badge } from '@/shared/ui/Badge/Badge';
+import { Button } from '@/shared/ui/Button/Button';
+import { Card } from '@/shared/ui/Card/Card';
+import { Text } from '@/shared/ui/Text/Text';
 
-import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { AppLink } from '@/shared/ui/AppLink/AppLink';
 import type { Article, ArticleTextBlock } from '../../model/types/article';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 

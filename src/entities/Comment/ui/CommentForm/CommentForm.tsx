@@ -1,9 +1,9 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { Textarea } from 'shared/ui/Textarea/Textarea';
-import { VStack } from 'shared/ui/Stack/VStack/VStack';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
+import { Textarea } from '@/shared/ui/Textarea/Textarea';
+import { VStack } from '@/shared/ui/Stack/VStack/VStack';
 import cls from './CommentForm.module.scss';
 
 interface CommentFormProps {
