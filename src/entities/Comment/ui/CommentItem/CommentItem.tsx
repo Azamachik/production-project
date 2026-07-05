@@ -34,7 +34,11 @@ export const CommentItem = memo((props: CommentItemProps) => {
     }
 
     return (
-        <VStack className={classNames(cls.CommentItem, {}, [className])}>
+        <VStack
+            className={classNames(cls.CommentItem, {}, [className])}
+            max
+            gap="8"
+        >
             <AppLink to={`/profile/${comment.user?.id}`} className={cls.header}>
                 <Avatar
                     alt={t('Аватар')}

@@ -22,7 +22,6 @@ files.forEach((sourceFile) => {
         if (isAbsolutePath(value)) {
             importDecl.setModuleSpecifier(`@/${value}`);
         }
-        console.log(importDecl.getModuleSpecifierValue());
     });
 });
 

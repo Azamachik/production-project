@@ -7,8 +7,6 @@ import { VStack } from '@/shared/ui/Stack/VStack/VStack';
 import type { Comment } from '../../model/types/comment';
 import { CommentItem } from '../CommentItem/CommentItem';
 
-import cls from './CommentList.module.scss';
-
 interface CommentListProps {
     className?: string;
     comments: Comment[];
@@ -20,16 +18,11 @@ export const CommentList = memo((props: CommentListProps) => {
     const { t } = useTranslation();
 
     return (
-        <VStack
-            max
-            gap="16"
-            className={classNames(cls.CommentList, {}, [className])}
-        >
+        <VStack max gap="8" className={classNames('', {}, [className])}>
             {comments.length ? (
                 comments.map((comment) => (
                     <CommentItem
                         key={comment.id}
-                        className={cls.comment}
                         comment={comment}
                         isLoading={isLoading}
                     />

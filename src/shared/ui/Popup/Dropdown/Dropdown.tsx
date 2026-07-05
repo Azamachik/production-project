@@ -1,6 +1,6 @@
 import { Menu } from '@headlessui/react';
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { Fragment, ReactNode } from 'react';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Dropdown.module.scss';
 import { Button, ButtonTheme } from '../../Button/Button';
 import { AppLink } from '../../AppLink/AppLink';
@@ -34,7 +34,9 @@ export function Dropdown(props: DropdownProps) {
                 popupCls.popup,
             ])}
         >
-            <Menu.Button className={popupCls.trigger}>{trigger}</Menu.Button>
+            <Menu.Button as="div" className={popupCls.trigger}>
+                {trigger}
+            </Menu.Button>
             <Menu.Items className={classNames(cls.items, {}, classes)}>
                 {items?.map((item) => {
                     const content = ({ active }: { active: boolean }) => (
@@ -55,6 +57,7 @@ export function Dropdown(props: DropdownProps) {
                     if (item.href) {
                         return (
                             <Menu.Item
+                                key={`dropdown-${item.value}`}
                                 disabled={item.disabled}
                                 as={AppLink}
                                 to={item.href}
@@ -65,7 +68,11 @@ export function Dropdown(props: DropdownProps) {
                     }
 
                     return (
-                        <Menu.Item as={Fragment} disabled={item.disabled}>
+                        <Menu.Item
+                            as={Fragment}
+                            disabled={item.disabled}
+                            key={`dropdown-${item.value}`}
+                        >
                             {content}
                         </Menu.Item>
                     );

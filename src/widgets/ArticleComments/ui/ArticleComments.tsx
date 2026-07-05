@@ -1,6 +1,6 @@
+import { useTranslation } from 'react-i18next';
 import { CommentList } from '@/entities/Comment';
 import { AddCommentForm } from '@/features/AddCommentForm';
-import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Text } from '@/shared/ui/Text/Text';
 import { VStack } from '@/shared/ui/Stack/VStack/VStack';
@@ -23,7 +23,7 @@ export const ArticleComments = ({
     if (isLoading || !comments) return null;
 
     return (
-        <VStack gap="16" max className={classNames('', {}, [className])}>
+        <VStack gap="8" max className={classNames('', {}, [className])}>
             <Text title={t('Комментарии')} />
             <AddCommentForm onSend={onSend} />
             <CommentList isLoading={isLoading} comments={comments} />

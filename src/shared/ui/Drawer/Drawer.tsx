@@ -1,8 +1,9 @@
-import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { ReactNode, useEffect } from 'react';
-// import { useDrag } from '@use-gesture/react';
-// import { a, useSpring, config } from '@react-spring/web';
-import { useAnimationLibs } from '@/shared/lib/components/AnimationProvider';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import {
+    AnimationProvider,
+    useAnimationLibs,
+} from '@/shared/lib/components/AnimationProvider';
 import cls from './Drawer.module.scss';
 import { Portal } from '../Portal/Portal';
 import { Overlay } from '../Overlay/Overlay';
@@ -103,7 +104,7 @@ export const DrawerContent = (props: DrawerProps) => {
     );
 };
 
-export const Drawer = (props: DrawerProps) => {
+const DrawerAsync = (props: DrawerProps) => {
     const { isLoaded } = useAnimationLibs();
 
     if (!isLoaded) {
@@ -112,3 +113,9 @@ export const Drawer = (props: DrawerProps) => {
 
     return <DrawerContent {...props} />;
 };
+
+export const Drawer = (props: DrawerProps) => (
+    <AnimationProvider>
+        <DrawerAsync {...props} />
+    </AnimationProvider>
+);

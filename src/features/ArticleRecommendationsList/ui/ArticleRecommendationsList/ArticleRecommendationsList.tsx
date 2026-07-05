@@ -1,7 +1,7 @@
 import { memo } from 'react';
-import { Article, ArticleView } from '@/entities/Article';
-import { Text } from '@/shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
+import { Article, ArticleList, ArticleView } from '@/entities/Article';
+import { Text } from '@/shared/ui/Text/Text';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ArticleListItem } from '@/entities/Article/ui/ArticleListItem/ArticleListItem';
 import { HStack } from '@/shared/ui/Stack/HStack/HStack';
@@ -27,23 +27,15 @@ export const ArticleRecommendationsList = memo(
             return null;
         }
 
-        const renderArticles = (article: Article) => (
-            <ArticleListItem
-                article={article}
-                key={article.id}
-                target="_blank"
-                view={ArticleView.GRID}
-            />
-        );
-
         return (
             <VStack className={classNames('', {}, [className])} gap="8">
                 <Text className={cls.commentTitle} title={t('Рекомендуем')} />
-                <HStack
+                <ArticleList
                     className={classNames(cls.recommendations, {}, [className])}
-                >
-                    {articles?.map(renderArticles)}
-                </HStack>
+                    articles={articles}
+                    target="_blank"
+                    view={ArticleView.GRID}
+                />
             </VStack>
         );
     },

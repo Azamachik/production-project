@@ -1,7 +1,7 @@
-import { ArticleDetails } from '@/entities/Article';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
+import { ArticleDetails } from '@/entities/Article';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
@@ -16,6 +16,7 @@ import { ArticleComments } from '@/widgets/ArticleComments';
 import { addArticlesComment } from '../../model/services/addArticlesComment/addArticlesComment';
 import { articleDetailsPageReducer } from '../../model/slices';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
+import { ArticleRating } from '@/features/ArticleRating';
 
 interface ArticleDetailsPageProps {
     className?: string;
@@ -48,6 +49,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
             <VStack gap="16" max>
                 <ArticleDetailsPageHeader />
                 <ArticleDetails id={id} />
+                <ArticleRating articleId={id} />
                 <ArticleRecommendationsList />
                 <ArticleComments id={id} onSend={onSend} />
             </VStack>

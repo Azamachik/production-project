@@ -1,12 +1,13 @@
 import { memo, useCallback } from 'react';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button } from '@/shared/ui/Button/Button';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Button } from '@/shared/ui/Button/Button';
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { getCanEditArticle } from '../../model/selectors/article';
 import cls from './ArticleDetailsPageHeader.module.scss';
+import { HStack } from '@/shared/ui/Stack';
 
 interface ArticleDetailsPageHeaderProps {
     className?: string;
@@ -28,12 +29,12 @@ export const ArticleDetailsPageHeader = memo(
         }, []);
 
         return (
-            <div className={classNames(cls.controlButtons, {}, [className])}>
+            <HStack className={className} justify="between">
                 <Button onClick={onBack}>{t('Назад к статьям')}</Button>
                 {canEdit && (
                     <Button onClick={onEdit}>{t('Редактировать')}</Button>
                 )}
-            </div>
+            </HStack>
         );
     },
 );

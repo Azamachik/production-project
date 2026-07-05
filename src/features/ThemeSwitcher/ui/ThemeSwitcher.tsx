@@ -1,5 +1,5 @@
-import { useTheme } from '@/app/providers/ThemeProvider';
 import { memo } from 'react';
+import { useTheme } from '@/app/providers/ThemeProvider';
 import Moon from '@/shared/assets/icons/moon.svg';
 import Sun from '@/shared/assets/icons/sun.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
