@@ -1,10 +1,11 @@
 import { memo, useCallback, useState } from 'react';
-import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
-import NotificationIcon from '@/shared/assets/icons/notify.svg';
-import { Popover } from '@/shared/ui/Popup';
+
 import { NotificationList } from '@/entities/Notification';
+import NotificationIcon from '@/shared/assets/icons/notify.svg';
 import { useDeviceDetect } from '@/shared/lib/hooks/useDeviceDetect/useDeviceDetect';
-import { Drawer } from '@/shared/ui/Drawer/Drawer';
+import { Button, ButtonTheme } from '@/shared/ui/Button';
+import { Drawer } from '@/shared/ui/Drawer';
+import { Popover } from '@/shared/ui/Popup';
 
 import cls from './ShowNotification.module.scss';
 

@@ -1,13 +1,14 @@
 import { HTMLAttributeAnchorTarget, memo, useCallback } from 'react';
+import { Virtuoso, VirtuosoGrid } from 'react-virtuoso';
+
 import { classNames } from '@/shared/lib/classNames/classNames';
 
-import { Virtuoso, VirtuosoGrid } from 'react-virtuoso';
+import cls from './ArticleList.module.scss';
+
+import { ArticleView } from '../../model/consts/articleConsts';
+import type { Article } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
-
-import cls from './ArticleList.module.scss';
-import { ArticleView } from '../../model/consts/consts';
-import type { Article } from '../../model/types/article';
 
 interface ArticleListProps {
     className?: string;
@@ -44,12 +45,13 @@ export const ArticleList = memo((props: ArticleListProps) => {
     } = props;
 
     const renderArticle = useCallback(
-        (index: number = 0, article: Article) => (
+        (article: Article, index: number = 0) => (
             <ArticleListItem
                 className={cls.card}
                 article={article}
                 view={view}
                 key={article.id}
+                index={index}
                 target={target}
             />
         ),

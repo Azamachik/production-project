@@ -1,31 +1,36 @@
 import { HTMLAttributeAnchorTarget, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import EyeIcon from '@/shared/assets/icons/eye.svg';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { Avatar } from '@/shared/ui/Avatar/Avatar';
-import { Badge } from '@/shared/ui/Badge/Badge';
-import { Button } from '@/shared/ui/Button/Button';
-import { Card } from '@/shared/ui/Card/Card';
-import { Text } from '@/shared/ui/Text/Text';
 
-import { AppLink } from '@/shared/ui/AppLink/AppLink';
-import type { Article, ArticleTextBlock } from '../../model/types/article';
-import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
+import EyeIcon from '@/shared/assets/icons/eye.svg';
+import { RoutePath } from '@/shared/consts/router';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { AppLink } from '@/shared/ui/AppLink';
+import { Avatar } from '@/shared/ui/Avatar';
+import { Badge } from '@/shared/ui/Badge';
+import { Button } from '@/shared/ui/Button';
+import { Card } from '@/shared/ui/Card';
+import { Text } from '@/shared/ui/Text';
 
 import cls from './ArticleListItem.module.scss';
-import { ArticleBlockType, ArticleView } from '../../model/consts/consts';
+
+import {
+    ArticleBlockType,
+    ArticleView,
+} from '../../model/consts/articleConsts';
+import type { Article, ArticleTextBlock } from '../../model/types/article';
+import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 
 interface ArticleListItemProps {
     className?: string;
     article: Article;
     view: ArticleView;
     target?: HTMLAttributeAnchorTarget;
+    index?: number;
 }
 
 export const ArticleListItem = memo((props: ArticleListItemProps) => {
-    const { className, article, view, target } = props;
+    const { className, article, view, target, index } = props;
     const navigate = useNavigate();
     const { t } = useTranslation();
 

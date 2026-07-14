@@ -1,7 +1,9 @@
-import webpack from 'webpack';
 import path from 'path';
-import { BuildPaths } from '../build/types/config';
+
+import webpack from 'webpack';
+
 import { buildCssLoaders } from '../build/loaders/buildCssLoaders';
+import { BuildPaths } from '../build/types/config';
 
 export default ({ config }: { config: webpack.Configuration }) => {
     const paths: BuildPaths = {
@@ -37,5 +39,9 @@ export default ({ config }: { config: webpack.Configuration }) => {
             __PROJECT__: JSON.stringify('storybook'),
         }),
     );
+    config!.resolve!.alias = {
+        ...config!.resolve!.alias,
+        '@': paths.src,
+    };
     return config;
 };

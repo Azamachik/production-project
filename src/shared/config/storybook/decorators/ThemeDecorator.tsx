@@ -1,5 +1,8 @@
 import { StoryFn } from '@storybook/react';
-import { Theme, ThemeProvider } from '@/app/providers/ThemeProvider';
+
+// eslint-disable-next-line feature-sliced-path-checker-stable/layer-imports
+import { ThemeProvider } from '@/app/providers/ThemeProvider';
+import { Theme } from '@/shared/consts/theme';
 
 export const ThemeDecorator = (theme: Theme) => (Story: StoryFn) => (
     <ThemeProvider initialTheme={theme}>

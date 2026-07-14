@@ -1,6 +1,7 @@
 import { ReducersMapObject } from '@reduxjs/toolkit';
 import { ReactNode } from 'react';
 import { Provider } from 'react-redux';
+
 import { ReducersList } from '@/shared/lib/hooks/useDynamicModuleLoad/useDynamicModuleLoad';
 
 import { StateSchema } from '../config/StateSchema';

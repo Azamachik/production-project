@@ -1,22 +1,24 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
+
 import { ArticleDetails } from '@/entities/Article';
+import { ArticleRating } from '@/features/ArticleRating';
+import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
     ReducersList,
     useDynamicModuleLoad,
 } from '@/shared/lib/hooks/useDynamicModuleLoad/useDynamicModuleLoad';
-import { Page } from '@/widgets/Page';
-import { Text } from '@/shared/ui/Text/Text';
-import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList';
-import { VStack } from '@/shared/ui/Stack/VStack/VStack';
+import { VStack } from '@/shared/ui/Stack';
+import { Text } from '@/shared/ui/Text';
 import { ArticleComments } from '@/widgets/ArticleComments';
+import { Page } from '@/widgets/Page';
+
 import { addArticlesComment } from '../../model/services/addArticlesComment/addArticlesComment';
 import { articleDetailsPageReducer } from '../../model/slices';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
-import { ArticleRating } from '@/features/ArticleRating';
 
 interface ArticleDetailsPageProps {
     className?: string;

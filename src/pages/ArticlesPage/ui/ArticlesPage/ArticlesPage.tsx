@@ -1,29 +1,32 @@
-import { ArticleList, ArticleView } from '@/entities/Article';
-import { ToggleArticleView } from '@/features/ArticleView';
 import { memo, useCallback, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useSearchParams } from 'react-router-dom';
+
+import { ArticleList, ArticleView } from '@/entities/Article';
+import { ToggleArticleView } from '@/features/ArticleView';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
     ReducersList,
     useDynamicModuleLoad,
 } from '@/shared/lib/hooks/useDynamicModuleLoad/useDynamicModuleLoad';
-import { Page } from '@/widgets/Page';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { useSearchParams } from 'react-router-dom';
-import { initArticles } from '../../model/services/initArticles/initArticles';
+import { Page } from '@/widgets/Page';
+
+import cls from './ArticlesPage.module.scss';
+
 import {
     getArticlesError,
     getArticlesIsLoading,
     getArticlesView,
 } from '../../model/selectors/getArticles';
+import { fetchNextArticles } from '../../model/services/fetchNextArticles/fetchNextArticles';
+import { initArticles } from '../../model/services/initArticles/initArticles';
 import {
     articlesActions,
     articlesReducer,
     getArticles,
 } from '../../model/slices/articlesSlice';
-import cls from './ArticlesPage.module.scss';
-import { fetchNextArticles } from '../../model/services/fetchNextArticles/fetchNextArticles';
 import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
 
 interface ArticlesPageProps {

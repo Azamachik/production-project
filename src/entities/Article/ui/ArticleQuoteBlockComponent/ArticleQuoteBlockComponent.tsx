@@ -1,10 +1,11 @@
 import { memo } from 'react';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { Text } from '@/shared/ui/Text/Text';
 
-import type { ArticleQuoteBlock } from '../../model/types/article';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Text } from '@/shared/ui/Text';
 
 import cls from './ArticleQuoteBlockComponent.module.scss';
+
+import type { ArticleQuoteBlock } from '../../model/types/article';
 
 interface ArticleQuoteBlockComponentProps {
     className?: string;

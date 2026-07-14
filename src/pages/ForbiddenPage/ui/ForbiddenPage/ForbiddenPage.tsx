@@ -1,5 +1,7 @@
 import { memo } from 'react';
+
 import { classNames } from '@/shared/lib/classNames/classNames';
+
 import cls from './ForbiddenPage.module.scss';
 
 interface ForbiddenPageProps {

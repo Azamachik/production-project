@@ -1,4 +1,5 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
+
 import { ForbiddenPageSchema } from '../types/ForbiddenPageSchema';
 
 const initialState: ForbiddenPageSchema = {
@@ -10,9 +11,7 @@ const initialState: ForbiddenPageSchema = {
 export const forbiddenPageSlice = createSlice({
     name: 'forbiddenPage',
     initialState,
-    reducers: {
-
-    },
+    reducers: {},
     // extraReducers: (builder) => {
     //     builder
     //         .addCase(.pending, (state) => {

@@ -31,6 +31,8 @@ module.exports = {
         '@typescript-eslint',
         'i18next',
         'react-hooks',
+        'unused-imports',
+        'import',
         'feature-sliced-path-checker-stable',
     ],
 
@@ -40,9 +42,28 @@ module.exports = {
             { extensions: ['.js', '.jsx', '.tsx'] },
         ],
         'import/no-unresolved': 'off',
+        'import/order': [
+            'error',
+            {
+                groups: ['builtin', 'external', 'internal'],
+                pathGroups: [
+                    { pattern: '@/**', group: 'external', position: 'after' },
+                    {
+                        pattern: './**.module.*',
+                        group: 'internal',
+                        position: 'after',
+                    },
+                ],
+                'newlines-between': 'always',
+                alphabetize: {
+                    order: 'asc',
+                    caseInsensitive: true,
+                },
+            },
+        ],
         'import/prefer-default-export': 'off',
         'no-unused-vars': 'off',
-        'unused-imports/no-unused-imports': 'off',
+        'unused-imports/no-unused-imports': 'error',
         'react/require-default-props': 'off',
         'react/react-in-jsx-scope': 'off',
         'react/jsx-props-no-spreading': 'warn',
@@ -61,7 +82,28 @@ module.exports = {
         'react/jsx-max-props-per-line': ['error', { maximum: { single: 4 } }],
         'react/no-unstable-nested-components': 'warn',
         'react/no-array-index-key': 'off',
-        'feature-sliced-path-checker-stable/path-checker': 'error',
+        'feature-sliced-path-checker-stable/path-checker': [
+            'error',
+            { alias: '@' },
+        ],
+        'feature-sliced-path-checker-stable/public-api-imports': [
+            'error',
+            {
+                alias: '@',
+                testFilesPatterns: [
+                    '**/*.test.*',
+                    '**/*.stories.*',
+                    '**/StoreDecorator.tsx',
+                ],
+            },
+        ],
+        'feature-sliced-path-checker-stable/layer-imports': [
+            'error',
+            {
+                alias: '@',
+                ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
+            },
+        ],
         'react/no-unused-prop-types': 'off',
         'no-unused-expressions': 'off',
     },

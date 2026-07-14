@@ -7,16 +7,17 @@ import {
     useImperativeHandle,
     useRef,
 } from 'react';
-import { classNames } from '@/shared/lib/classNames/classNames';
-
-import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { getScrollByPath, scrollActions } from '@/features/ScrollSave';
-import { useLocation } from 'react-router-dom';
-import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useSelector } from 'react-redux';
+import { useLocation } from 'react-router-dom';
+
 import { StateSchema } from '@/app/providers/StoreProvider';
+import { getScrollByPath, scrollActions } from '@/features/ScrollSave';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useThrottle } from '@/shared/lib/hooks/useThrottle/useThrottle';
+
 import cls from './Page.module.scss';
 
 interface PageProps {

@@ -1,8 +1,9 @@
 import { StoryFn } from '@storybook/react';
+
 import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
-import { articleDetailsReducer } from '@/entities/Article';
-import { loginReducer } from '@/features/AuthByUsername';
-import { profileReducer } from '@/features/EditableProfileCard';
+import { articleDetailsReducer } from '@/entities/Article/testing';
+import { loginReducer } from '@/features/AuthByUsername/testing';
+import { profileReducer } from '@/features/EditableProfileCard/testing';
 import { ReducersList } from '@/shared/lib/hooks/useDynamicModuleLoad/useDynamicModuleLoad';
 
 const defaultAsyncReducers: ReducersList = {

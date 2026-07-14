@@ -1,17 +1,21 @@
-import { Country } from '@/entities/Country';
-import { Currency } from '@/entities/Currency';
-import { ProfileCard } from '@/entities/Profile';
 import { useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+
+import { Country } from '@/entities/Country';
+import { Currency } from '@/entities/Currency';
+import { ProfileCard } from '@/entities/Profile';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
     ReducersList,
     useDynamicModuleLoad,
 } from '@/shared/lib/hooks/useDynamicModuleLoad/useDynamicModuleLoad';
-import { Text, TextTheme } from '@/shared/ui/Text/Text';
+import { Text, TextTheme } from '@/shared/ui/Text';
 
+import cls from './EditableProfileCard.module.scss';
+
+import { ValidateProfileError } from '../../model/consts/consts';
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
 import { getProfileFormData } from '../../model/selectors/getProfileFormData/getProfileFormData';
 import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
@@ -23,9 +27,6 @@ import {
     profileReducer,
 } from '../../model/slices/profileSlices';
 import { EditableProfileCardControlPanel } from '../EditableProfileCardControlPanel/EditableProfileCardControlPanel';
-
-import cls from './EditableProfileCard.module.scss';
-import { ValidateProfileError } from '../../model/consts/consts';
 
 interface EditableProfileCardProps {
     className?: string;

@@ -1,6 +1,8 @@
 export { StoreProvider } from './components/StoreProvider';
 export type {
     StateSchema,
+    StateSchemaKey,
+    ReduxStoreWithManager,
     ThunkExtraArg,
     ThunkConfig,
 } from './config/StateSchema';

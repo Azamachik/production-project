@@ -1,5 +1,3 @@
-import { get } from 'http';
-
 import { StateSchema } from '@/app/providers/StoreProvider';
 
 import { getArticleDetailsIsLoading } from './getArticleDetailsIsLoading';

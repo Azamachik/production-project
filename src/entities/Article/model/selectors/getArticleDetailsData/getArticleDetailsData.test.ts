@@ -1,9 +1,8 @@
 import { StateSchema } from '@/app/providers/StoreProvider';
 
-import type { Article } from '../../types/article';
-
 import { getArticleDetailsData } from './getArticleDetailsData';
 import { ArticleBlockType, ArticleType } from '../../consts/consts';
+import type { Article } from '../../types/article';
 
 describe('getArticleDetailsData', () => {
     const data: Article = {

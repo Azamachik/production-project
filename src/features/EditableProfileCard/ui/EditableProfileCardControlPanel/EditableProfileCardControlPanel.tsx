@@ -1,14 +1,16 @@
-import { getUserAuthData } from '@/entities/User';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+
+import { getUserAuthData } from '@/entities/User';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
-import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
-import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
+import { Button, ButtonTheme } from '@/shared/ui/Button';
 
 import cls from './EditableProfileCardControlPanel.module.scss';
+
+import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
+import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 import { profileActions } from '../../model/slices/profileSlices';
 
 interface EditableProfileCardControlPanelProps {

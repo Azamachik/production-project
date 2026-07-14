@@ -1,13 +1,15 @@
-import { AboutPage } from '@/pages/AboutPage';
-import { ArticleDetailsPage } from '@/pages/ArticleDetailsPage';
-import { ArticlesPage } from '@/pages/ArticlesPage';
-import { ArticleEditPage } from '@/pages/ArticleEditPage';
-import { MainPage } from '@/pages/MainPage';
-import { NotFoundPage } from '@/pages/NotFoundPage/ui/NotFoundPage';
-import { ProfilePage } from '@/pages/ProfilePage';
 import { RouteProps } from 'react-router-dom';
-import { ForbiddenPage } from '@/pages/ForbiddenPage';
+
+import { AboutPage } from '@/pages/AboutPage';
 import { AdminPage } from '@/pages/AdminPage';
+import { ArticleDetailsPage } from '@/pages/ArticleDetailsPage';
+import { ArticleEditPage } from '@/pages/ArticleEditPage';
+import { ArticlesPage } from '@/pages/ArticlesPage';
+import { ForbiddenPage } from '@/pages/ForbiddenPage';
+import { MainPage } from '@/pages/MainPage';
+import { NotFoundPage } from '@/pages/NotFoundPage';
+import { ProfilePage } from '@/pages/ProfilePage';
+import { AppRoutes, RoutePath } from '@/shared/consts/router';
 
 export enum Roles {
     ADMIN = 'ADMIN',
@@ -19,32 +21,6 @@ export interface AppRouteProps extends RouteProps {
     authOnly?: boolean;
     roles?: Roles[];
 }
-
-export enum AppRoutes {
-    MAIN = 'main',
-    ABOUT = 'about',
-    PROFILE = 'profile',
-    ARTICLES = 'articles',
-    ARTICLE_DETAILS = 'article_details',
-    ARTICLE_CREATE = 'article_create',
-    ARTICLE_EDIT = 'article_edit',
-    NOT_FOUND = 'not_found',
-    FORBIDDEN = 'forbidden',
-    ADMIN = 'admin',
-}
-
-export const RoutePath: Record<AppRoutes, string> = {
-    [AppRoutes.MAIN]: '/',
-    [AppRoutes.ABOUT]: '/about',
-    [AppRoutes.PROFILE]: '/profile/',
-    [AppRoutes.ARTICLES]: '/articles',
-    [AppRoutes.ARTICLE_DETAILS]: '/articles/',
-    [AppRoutes.ARTICLE_CREATE]: '/articles/create',
-    [AppRoutes.ARTICLE_EDIT]: '/articles/:id/edit',
-    [AppRoutes.ADMIN]: '/admin',
-    [AppRoutes.FORBIDDEN]: '/forbidden',
-    [AppRoutes.NOT_FOUND]: '*',
-};
 
 export const routeConfig: Record<AppRoutes, AppRouteProps> = {
     [AppRoutes.MAIN]: {

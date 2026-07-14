@@ -1,12 +1,13 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Article, ArticleList, ArticleView } from '@/entities/Article';
-import { Text } from '@/shared/ui/Text/Text';
+
+import { ArticleList, ArticleView } from '@/entities/Article';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { ArticleListItem } from '@/entities/Article/ui/ArticleListItem/ArticleListItem';
-import { HStack } from '@/shared/ui/Stack/HStack/HStack';
-import { VStack } from '@/shared/ui/Stack/VStack/VStack';
+import { VStack } from '@/shared/ui/Stack';
+import { Text } from '@/shared/ui/Text';
+
 import cls from './ArticleRecommendationsList.module.scss';
+
 import { useGetArticleRecommendationsListQuery } from '../../api/articleRecommendationsApi';
 
 interface ArticleRecommendationsListProps {

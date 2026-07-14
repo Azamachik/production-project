@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+
 import CalendarIcon from '@/shared/assets/icons/calendar.svg';
 import EyeIcon from '@/shared/assets/icons/eye.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -9,22 +10,23 @@ import {
     ReducersList,
     useDynamicModuleLoad,
 } from '@/shared/lib/hooks/useDynamicModuleLoad/useDynamicModuleLoad';
-import { Avatar } from '@/shared/ui/Avatar/Avatar';
-import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
-import { Text, TextAlign, TextSize } from '@/shared/ui/Text/Text';
-import type { ArticleBlock } from '../../model/types/article';
+import { Avatar } from '@/shared/ui/Avatar';
+import { Skeleton } from '@/shared/ui/Skeleton';
+import { Text, TextAlign, TextSize } from '@/shared/ui/Text';
 
+import cls from './ArticleDetails.module.scss';
+
+import { ArticleBlockType } from '../../model/consts/consts';
 import { getArticleDetailsData } from '../../model/selectors/getArticleDetailsData/getArticleDetailsData';
 import { getArticleDetailsError } from '../../model/selectors/getArticleDetailsError/getArticleDetailsError';
 import { getArticleDetailsIsLoading } from '../../model/selectors/getArticleDetailsIsLoading/getArticleDetailsIsLoading';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import { articleDetailsReducer } from '../../model/slices/articleDetailsSlice';
+import type { ArticleBlock } from '../../model/types/article';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleQuoteBlockComponent } from '../ArticleQuoteBlockComponent/ArticleQuoteBlockComponent';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
-import { ArticleBlockType } from '../../model/consts/consts';
-import cls from './ArticleDetails.module.scss';
 
 interface ArticleDetailsProps {
     className?: string;

@@ -1,11 +1,12 @@
-import { Article } from '@/entities/Article/model/types/article';
-import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
-
 import type { Meta, StoryObj } from '@storybook/react';
+
 import {
     ArticleBlockType,
     ArticleType,
 } from '@/entities/Article/model/consts/consts';
+import { Article } from '@/entities/Article/model/types/article';
+import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
+
 import ArticleDetailsPage from './ArticleDetailsPage';
 
 const meta = {

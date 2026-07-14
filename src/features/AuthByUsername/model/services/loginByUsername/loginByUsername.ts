@@ -1,4 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+
 import { ThunkConfig } from '@/app/providers/StoreProvider';
 import { User } from '@/entities/User';
 import { userActions } from '@/entities/User/model/slices/userSlice';

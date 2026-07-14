@@ -1,4 +1,5 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
+
 import { AdminPageSchema } from '../types/AdminPageSchema';
 
 const initialState: AdminPageSchema = {
@@ -10,9 +11,7 @@ const initialState: AdminPageSchema = {
 export const adminPageSlice = createSlice({
     name: 'adminPage',
     initialState,
-    reducers: {
-
-    },
+    reducers: {},
     // extraReducers: (builder) => {
     //     builder
     //         .addCase(.pending, (state) => {

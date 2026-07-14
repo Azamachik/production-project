@@ -1,8 +1,11 @@
 import { MouseEvent, ReactNode } from 'react';
+
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
-import { Portal } from '@/shared/ui/Portal/Portal';
 import { useModal } from '@/shared/lib/hooks/useModal/useModal';
+import { Portal } from '@/shared/ui/Portal';
+
 import cls from './Modal.module.scss';
+
 import { Overlay } from '../Overlay/Overlay';
 
 export interface ModalProps {

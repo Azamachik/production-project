@@ -1,9 +1,11 @@
 import { useTranslation } from 'react-i18next';
+
 import { CommentList } from '@/entities/Comment';
 import { AddCommentForm } from '@/features/AddCommentForm';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Text } from '@/shared/ui/Text/Text';
-import { VStack } from '@/shared/ui/Stack/VStack/VStack';
+import { VStack } from '@/shared/ui/Stack';
+import { Text } from '@/shared/ui/Text';
+
 import { useGetArticleCommentsQuery } from '../api/articleCommentsApi';
 
 interface ArticleCommentsProps {

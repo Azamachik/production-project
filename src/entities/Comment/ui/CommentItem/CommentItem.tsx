@@ -1,15 +1,16 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { AppLink } from '@/shared/ui/AppLink/AppLink';
-import { Avatar } from '@/shared/ui/Avatar/Avatar';
-import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
-import { Text } from '@/shared/ui/Text/Text';
 
-import { VStack } from '@/shared/ui/Stack/VStack/VStack';
-import { Comment } from '../../model/types/comment';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { AppLink } from '@/shared/ui/AppLink';
+import { Avatar } from '@/shared/ui/Avatar';
+import { Skeleton } from '@/shared/ui/Skeleton';
+import { VStack } from '@/shared/ui/Stack';
+import { Text } from '@/shared/ui/Text';
 
 import cls from './CommentItem.module.scss';
+
+import { Comment } from '../../model/types/comment';
 
 interface CommentItemProps {
     className?: string;

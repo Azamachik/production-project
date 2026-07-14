@@ -1,12 +1,15 @@
-import { Theme } from '@/app/providers/ThemeProvider';
-import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
-
 import type { Meta, StoryObj } from '@storybook/react';
+
+import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
+import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
+import { Theme } from '@/shared/consts/theme';
+
 import MainPage from './MainPage';
 
 const meta = {
     title: 'pages/MainPage',
     component: MainPage,
+    decorators: [StoreDecorator({})],
 } satisfies Meta<typeof MainPage>;
 
 export default meta;

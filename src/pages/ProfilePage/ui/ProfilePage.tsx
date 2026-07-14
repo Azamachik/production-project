@@ -1,6 +1,7 @@
-import { EditableProfileCard } from '@/features/EditableProfileCard';
 import { memo } from 'react';
 import { useParams } from 'react-router-dom';
+
+import { EditableProfileCard } from '@/features/EditableProfileCard';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Page } from '@/widgets/Page';
 

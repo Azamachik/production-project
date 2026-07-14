@@ -1,7 +1,8 @@
 import webpack from 'webpack';
-import { BuildOptions } from './types/config';
-import { buildCssLoaders } from './loaders/buildCssLoaders';
+
 import { buildBabelLoader } from './loaders/buildBabelLoader';
+import { buildCssLoaders } from './loaders/buildCssLoaders';
+import { BuildOptions } from './types/config';
 
 export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
     // const typescriptLoader: webpack.RuleSetRule = {

@@ -1,8 +1,9 @@
 import { render } from '@testing-library/react';
-import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
 import { ReactNode } from 'react';
 import { I18nextProvider } from 'react-i18next';
 import { MemoryRouter } from 'react-router-dom';
+
+import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
 import i18ForTests from '@/shared/config/i18n/i18ForTests';
 import { ReducersList } from '@/shared/lib/hooks/useDynamicModuleLoad/useDynamicModuleLoad';
 

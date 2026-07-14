@@ -1,8 +1,10 @@
 import { screen } from '@testing-library/react';
-import { ComponentRender } from '@/shared/lib/tests/componentRender/ComponentRender';
-import { Currency } from '@/entities/Currency';
+
 import { Country } from '@/entities/Country';
+import { Currency } from '@/entities/Currency';
 import { Profile } from '@/entities/Profile';
+import { ComponentRender } from '@/shared/lib/tests/componentRender/ComponentRender';
+
 import { EditableProfileCard } from './EditableProfileCard';
 import { profileReducer } from '../../model/slices/profileSlices';
 

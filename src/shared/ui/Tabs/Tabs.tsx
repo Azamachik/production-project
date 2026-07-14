@@ -1,6 +1,8 @@
-import { memo, ReactNode } from 'react';
+import { ReactNode } from 'react';
+
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Card, CardVariants } from '@/shared/ui/Card/Card';
+import { Card, CardVariants } from '@/shared/ui/Card';
+
 import cls from './Tabs.module.scss';
 
 export interface TabItem {

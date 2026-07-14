@@ -1,11 +1,14 @@
 import { Menu } from '@headlessui/react';
 import { Fragment, ReactNode } from 'react';
+
 import { classNames } from '@/shared/lib/classNames/classNames';
+
 import cls from './Dropdown.module.scss';
-import { Button, ButtonTheme } from '../../Button/Button';
+
 import { AppLink } from '../../AppLink/AppLink';
-import { DropdownDirection, mapDirectionClasses } from '../common/popupConsts';
+import { Button, ButtonTheme } from '../../Button/Button';
 import popupCls from '../common/popup.module.scss';
+import { DropdownDirection, mapDirectionClasses } from '../common/popupConsts';
 
 interface DropdownItems {
     value: string;

@@ -1,13 +1,13 @@
-import { AppRouter } from '@/app/providers/router';
-import { getUserMounted } from '@/entities/User';
-import { userActions } from '@/entities/User/model/slices/userSlice';
 import { Suspense, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+
+import { getUserMounted, userActions } from '@/entities/User';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Navbar } from '@/widgets/Navbar';
-import { Sidebar } from '@/widgets/Sidebar/ui';
+import { Sidebar } from '@/widgets/Sidebar';
 
+import { AppRouter } from './providers/router';
 import { useTheme } from './providers/ThemeProvider';
 
 function App() {

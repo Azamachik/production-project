@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
+
 import ForbiddenPage from './ForbiddenPage';
 
 const meta = {
