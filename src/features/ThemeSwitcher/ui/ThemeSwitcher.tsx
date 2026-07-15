@@ -1,5 +1,6 @@
 import { memo } from 'react';
 
+// eslint-disable-next-line feature-sliced-path-checker-stable/layer-imports
 import { useTheme } from '@/app/providers/ThemeProvider';
 import Moon from '@/shared/assets/icons/moon.svg';
 import Sun from '@/shared/assets/icons/sun.svg';

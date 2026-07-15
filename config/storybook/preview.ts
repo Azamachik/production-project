@@ -4,6 +4,7 @@ import { RouterDecorator } from '../../src/shared/config/storybook/decorators/Ro
 import { StyleDecorator } from '../../src/shared/config/storybook/decorators/StyleDecorator';
 import { ThemeDecorator } from '../../src/shared/config/storybook/decorators/ThemeDecorator';
 import { Theme } from '../../src/shared/consts/theme';
+
 import '../../src/app/styles/index.scss';
 
 const preview: Preview = {
@@ -16,7 +17,17 @@ const preview: Preview = {
                 date: /Date$/i,
             },
         },
+        themes: {
+            default: 'light',
+            list: [
+                { name: 'light', class: ['app', Theme.LIGHT], color: 'white' },
+                { name: 'dark', class: ['app', Theme.DARK], color: 'dark' },
+                {
+                    name: 'orange',
+                    class: ['app', Theme.ORANGE],
+                    color: 'orange',
+                },
+            ],
+        },
     },
 };
-
-export default preview;

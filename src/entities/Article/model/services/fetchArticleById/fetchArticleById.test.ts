@@ -1,7 +1,9 @@
+// eslint-disable-next-line feature-sliced-path-checker-stable/layer-imports
+import { ArticleType } from '@/features/ArticleTypeSelector';
 import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 
 import { fetchArticleById } from './fetchArticleById';
-import { ArticleBlockType, ArticleType } from '../../consts/consts';
+import { ArticleBlockType } from '../../consts/articleConsts';
 import type { Article } from '../../types/article';
 
 const data: Article = {

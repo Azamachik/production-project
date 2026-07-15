@@ -1,5 +1,6 @@
 import { RouteProps } from 'react-router-dom';
 
+import { Roles } from '@/entities/User';
 import { AboutPage } from '@/pages/AboutPage';
 import { AdminPage } from '@/pages/AdminPage';
 import { ArticleDetailsPage } from '@/pages/ArticleDetailsPage';
@@ -9,13 +10,18 @@ import { ForbiddenPage } from '@/pages/ForbiddenPage';
 import { MainPage } from '@/pages/MainPage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
 import { ProfilePage } from '@/pages/ProfilePage';
-import { AppRoutes, RoutePath } from '@/shared/consts/router';
-
-export enum Roles {
-    ADMIN = 'ADMIN',
-    USER = 'USER',
-    MANAGER = 'MANAGER',
-}
+import {
+    AppRoutes,
+    getRouteAbout,
+    getRouteAdmin,
+    getRouteArticleCreate,
+    getRouteArticleDetails,
+    getRouteArticleEdit,
+    getRouteArticles,
+    getRouteForbidden,
+    getRouteMain,
+    getRouteProfile,
+} from '@/shared/consts/router';
 
 export interface AppRouteProps extends RouteProps {
     authOnly?: boolean;
@@ -24,50 +30,50 @@ export interface AppRouteProps extends RouteProps {
 
 export const routeConfig: Record<AppRoutes, AppRouteProps> = {
     [AppRoutes.MAIN]: {
-        path: RoutePath.main,
+        path: getRouteMain(),
         element: <MainPage />,
     },
     [AppRoutes.ABOUT]: {
-        path: RoutePath.about,
+        path: getRouteAbout(),
         element: <AboutPage />,
     },
     [AppRoutes.PROFILE]: {
-        path: `${RoutePath.profile}:id`,
+        path: getRouteProfile(':id'),
         element: <ProfilePage />,
         authOnly: true,
     },
     [AppRoutes.ARTICLES]: {
-        path: RoutePath.articles,
+        path: getRouteArticles(),
         element: <ArticlesPage />,
         authOnly: true,
     },
     [AppRoutes.ARTICLE_DETAILS]: {
-        path: `${RoutePath.article_details}:id`,
+        path: getRouteArticleDetails(':id'),
         element: <ArticleDetailsPage />,
         authOnly: true,
     },
     [AppRoutes.ARTICLE_CREATE]: {
-        path: RoutePath.article_create,
+        path: getRouteArticleCreate(),
         element: <ArticleEditPage />,
         authOnly: true,
     },
     [AppRoutes.ARTICLE_EDIT]: {
-        path: `${RoutePath.article_edit}`,
+        path: getRouteArticleEdit(':id'),
         element: <ArticleEditPage />,
         authOnly: true,
     },
     [AppRoutes.ADMIN]: {
-        path: RoutePath.admin,
+        path: getRouteAdmin(),
         element: <AdminPage />,
         authOnly: true,
         roles: [Roles.ADMIN, Roles.MANAGER],
     },
     [AppRoutes.FORBIDDEN]: {
-        path: RoutePath.forbidden,
+        path: getRouteForbidden(),
         element: <ForbiddenPage />,
     },
     [AppRoutes.NOT_FOUND]: {
-        path: RoutePath.not_found,
+        path: '*',
         element: <NotFoundPage />,
     },
 };

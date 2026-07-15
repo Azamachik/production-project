@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Theme } from '@/app/providers/ThemeProvider';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 import avatar from '@/shared/assets/tests/storybook_avatar.jpg';
 import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
+import { Theme } from '@/shared/consts/theme';
 
 import { ProfileCard } from './ProfileCard';
 

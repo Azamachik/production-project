@@ -23,3 +23,13 @@ export const RoutePath: Record<AppRoutes, string> = {
     [AppRoutes.FORBIDDEN]: '/forbidden',
     [AppRoutes.NOT_FOUND]: '*',
 };
+
+export const getRouteMain = () => '/';
+export const getRouteAbout = () => '/about';
+export const getRouteAdmin = () => '/admin';
+export const getRouteForbidden = () => '/forbidden';
+export const getRouteArticles = () => '/articles';
+export const getRouteArticleDetails = (id: string) => `/articles/${id}`;
+export const getRouteArticleCreate = () => '/articles/create';
+export const getRouteArticleEdit = (id: string) => `/articles/${id}/edit`;
+export const getRouteProfile = (id: string) => `profile/${id}`;

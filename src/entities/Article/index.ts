@@ -2,7 +2,7 @@ export { ArticleDetails } from './ui/ArticleDetails/ArticleDetails';
 
 export type { ArticleDetailsSchema, Article } from './model/types/article';
 
-export { ArticleView } from './model/consts/consts';
+export { ArticleView, ArticleBlockType } from './model/consts/articleConsts';
 
 export { getArticleDetailsData } from './model/selectors/getArticleDetailsData/getArticleDetailsData';
 

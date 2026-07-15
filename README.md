@@ -7,8 +7,8 @@
 ## Стек технологий
 
 - **UI:** React 18, React Router v6, SCSS-модули
-- **State:** Redux Toolkit, RTK Query, асинхронное подключение редюсеров (`DynamicModuleLoader`)
-- **Сборка:** Webpack 5, Vite, Babel, кастомные плагины
+- **State:** Redux Toolkit, RTK Query, асинхронное подключение редюсеров
+- **Сборка:** Webpack, Vite, Babel, кастомные плагины
 - **i18n:** i18next / react-i18next
 - **Тесты:** Jest, React Testing Library, Loki (скриншоты), Storybook
 - **Качество кода:** ESLint (+ собственные FSD-правила), Stylelint, Prettier, Husky

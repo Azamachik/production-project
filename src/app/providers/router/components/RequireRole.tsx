@@ -2,10 +2,8 @@ import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation, Navigate } from 'react-router-dom';
 
-import { getUserRoles } from '@/entities/User';
-import { RoutePath } from '@/shared/consts/router';
-
-import { Roles } from '../config/routeConfig';
+import { getUserRoles, Roles } from '@/entities/User';
+import { getRouteForbidden } from '@/shared/consts/router';
 
 export function RequireRole({
     children,
@@ -25,7 +23,7 @@ export function RequireRole({
     if (!hasAccess) {
         return (
             <Navigate
-                to={RoutePath.forbidden}
+                to={getRouteForbidden()}
                 state={{ from: location }}
                 replace
             />

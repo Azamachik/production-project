@@ -16,7 +16,7 @@ import { Text, TextAlign, TextSize } from '@/shared/ui/Text';
 
 import cls from './ArticleDetails.module.scss';
 
-import { ArticleBlockType } from '../../model/consts/consts';
+import { ArticleBlockType } from '../../model/consts/articleConsts';
 import { getArticleDetailsData } from '../../model/selectors/getArticleDetailsData/getArticleDetailsData';
 import { getArticleDetailsError } from '../../model/selectors/getArticleDetailsError/getArticleDetailsError';
 import { getArticleDetailsIsLoading } from '../../model/selectors/getArticleDetailsIsLoading/getArticleDetailsIsLoading';

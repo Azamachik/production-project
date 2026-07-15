@@ -1,4 +1,4 @@
-import { ChangeEvent, useCallback, useMemo } from 'react';
+import { ChangeEvent, useCallback, useMemo, memo } from 'react';
 
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 
@@ -18,7 +18,9 @@ interface SelectProps<T extends string> {
     readonly?: boolean;
 }
 
-export const Select = <T extends string>(props: SelectProps<T>) => {
+export const typedMemo: <T>(arg: T) => T = memo;
+
+export const Select = typedMemo(<T extends string>(props: SelectProps<T>) => {
     const { className, label, value, options, onChange, readonly } = props;
 
     const optionList = useMemo(
@@ -59,4 +61,4 @@ export const Select = <T extends string>(props: SelectProps<T>) => {
             </select>
         </div>
     );
-};
+});

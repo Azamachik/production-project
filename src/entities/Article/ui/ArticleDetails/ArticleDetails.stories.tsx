@@ -1,11 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Theme } from '@/app/providers/ThemeProvider';
+// eslint-disable-next-line feature-sliced-path-checker-stable/layer-imports
+import { ArticleType } from '@/features/ArticleTypeSelector';
 import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
+import { Theme } from '@/shared/consts/theme';
 
 import { ArticleDetails } from './ArticleDetails';
-import { ArticleBlockType, ArticleType } from '../../model/consts/consts';
+import { ArticleBlockType } from '../../model/consts/articleConsts';
 import type { Article } from '../../model/types/article';
 
 const meta = {

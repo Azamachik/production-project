@@ -2,12 +2,13 @@ import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
-import { RoutePath } from '@/app/providers/router/config/routeConfig';
-import { getUserAuthData, userActions } from '@/entities/User';
 import {
+    getUserAuthData,
+    userActions,
     isUserAdmin,
     isUserManager,
-} from '@/entities/User/model/selectors/getUserRoles/getUserRoles';
+} from '@/entities/User';
+import { getRouteAdmin, getRouteProfile } from '@/shared/consts/router';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Avatar } from '@/shared/ui/Avatar';
 import { Dropdown } from '@/shared/ui/Popup';
@@ -31,13 +32,13 @@ export const AvatarDropdown = () => {
             ? [
                   {
                       value: t('Админка'),
-                      href: RoutePath.admin,
+                      href: getRouteAdmin(),
                   },
               ]
             : []),
         {
             value: t('Профиль'),
-            href: `${RoutePath.profile}${authData?.id}`,
+            href: getRouteProfile(authData?.id!),
         },
         {
             value: t('Выйти'),

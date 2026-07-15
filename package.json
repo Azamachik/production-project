@@ -5,7 +5,7 @@
     "scripts": {
         "start": "webpack --env port=3000",
         "start:vite": "vite",
-        "start:dev": "concurrently 'npm run start:vite' 'npm run start:dev:server'",
+        "start:dev": "concurrently 'npm run start' 'npm run start:dev:server'",
         "start:dev:server": "node ./json-server/index.js",
         "build:dev": "webpack --env mode=development",
         "build:prod": "webpack --env mode=production apiUrl=https://blog-project-server-flax.vercel.app/",
@@ -24,7 +24,8 @@
         "storybook:build": "storybook build -c ./config/storybook",
         "prettier": "prettier --write ./src",
         "prepare": "husky && husky install",
-        "generate:slice": "node ./scripts/createSlice/index.js"
+        "generate:slice": "node ./scripts/createSlice/index.js",
+        "postinstall": "node ./scripts/clearCache.js"
     },
     "keywords": [],
     "author": "",
@@ -48,6 +49,7 @@
         "@storybook/addon-interactions": "^7.6.21",
         "@storybook/addon-links": "^7.6.21",
         "@storybook/addon-onboarding": "^1.0.11",
+        "@storybook/addon-themes": "^7.6.24",
         "@storybook/blocks": "^7.6.21",
         "@storybook/react": "^7.6.21",
         "@storybook/react-webpack5": "^7.6.21",
