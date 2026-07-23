@@ -5,11 +5,13 @@ import { useNavigate } from 'react-router-dom';
 import EyeIcon from '@/shared/assets/icons/eye.svg';
 import { RoutePath } from '@/shared/consts/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { AppImage } from '@/shared/ui/AppImage/AppImage';
 import { AppLink } from '@/shared/ui/AppLink';
 import { Avatar } from '@/shared/ui/Avatar';
 import { Badge } from '@/shared/ui/Badge';
 import { Button } from '@/shared/ui/Button';
 import { Card } from '@/shared/ui/Card';
+import { HStack, VStack } from '@/shared/ui/Stack';
 import { Text } from '@/shared/ui/Text';
 
 import cls from './ArticleListItem.module.scss';
@@ -33,7 +35,6 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
     const { className, article, view, target, index } = props;
     const navigate = useNavigate();
     const { t } = useTranslation();
-
     const types = article.type.map((type) => <Badge key={type} text={type} />);
 
     const onArticleOpen = useCallback(() => {
@@ -45,24 +46,19 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
             (block) => block.type === ArticleBlockType.TEXT,
         ) as ArticleTextBlock;
         return (
-            <div
-                className={classNames(cls.ArticleListItem, {}, [
-                    className,
-                    cls[view],
-                ])}
-            >
-                <Card className={cls.card}>
-                    <div className={cls.header}>
+            <VStack className={cls[view]} max gap="4">
+                <Card className={cls.card} max>
+                    <HStack className={cls.header}>
                         <Avatar src={article.user.avatar} size={30} />
                         <Text
                             title={article.user.username}
                             className={cls.username}
                         />
                         <Text title={article.createdAt} />
-                    </div>
+                    </HStack>
                     <Text title={article.title} text={article.subtitle} />
                     <div className={cls.types}>{types}</div>
-                    <img
+                    <AppImage
                         src={article.image}
                         alt={article.title}
                         className={cls.image}
@@ -73,7 +69,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                             className={cls.textBlock}
                         />
                     )}
-                    <div className={cls.footer}>
+                    <HStack className={cls.footer}>
                         <AppLink
                             target={target}
                             to={RoutePath.article_details + article.id}
@@ -82,13 +78,13 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                                 {t('Читать далее ...')}
                             </Button>
                         </AppLink>
-                        <span className={cls.viewsIcon}>
+                        <HStack className={cls.viewsIcon}>
                             <EyeIcon />
                             {article.views}
-                        </span>
-                    </div>
+                        </HStack>
+                    </HStack>
                 </Card>
-            </div>
+            </VStack>
         );
     }
 
@@ -103,7 +99,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
         >
             <Card className={cls.card} onClick={onArticleOpen}>
                 <div className={cls.imageWrapper}>
-                    <img
+                    <AppImage
                         src={article.image}
                         alt={article.title}
                         className={cls.image}

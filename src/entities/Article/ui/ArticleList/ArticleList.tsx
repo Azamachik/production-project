@@ -43,7 +43,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
         customScrollParent,
         virtualized = false,
     } = props;
-
+    console.log('articles', articles);
     const renderArticle = useCallback(
         (article: Article, index: number = 0) => (
             <ArticleListItem
@@ -86,10 +86,10 @@ export const ArticleList = memo((props: ArticleListProps) => {
         [],
     );
 
-    if (!virtualized) {
+    if (!virtualized || virtualized) {
         return (
             <div className={classNames(cls.itemsWrapper, {}, [className])}>
-                {articles?.map((article) => renderArticle(0, article))}
+                {articles?.map((article) => renderArticle(article, 0))}
                 {isLoading && getSkeletons(view)}
             </div>
         );

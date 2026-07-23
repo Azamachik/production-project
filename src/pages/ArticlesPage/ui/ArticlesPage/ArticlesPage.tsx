@@ -69,6 +69,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
         <Page
             ref={setPageElement}
             className={classNames(cls.ArticlesPage, {}, [className])}
+            onScrollEnd={onLoadNextPart}
         >
             <ArticlesPageFilters />
             <ToggleArticleView view={view} onViewClick={onViewChange} />
