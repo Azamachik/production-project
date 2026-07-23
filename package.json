@@ -162,7 +162,6 @@
         "*.{ts,tsx}": [
             "eslint",
             "prettier --write"
-        ],
-        "*.{scss}": "stylelint"
+        ]
     }
 }
